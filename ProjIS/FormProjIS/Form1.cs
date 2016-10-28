@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Handler;
 using Newtonsoft.Json;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace FormProjIS
 {
@@ -17,6 +18,7 @@ namespace FormProjIS
     {
         private List<Exercicio> exercicios = new List<Exercicio>();
         private String line;
+
         public Form1()
         {
             InitializeComponent();
@@ -41,7 +43,9 @@ namespace FormProjIS
         {
             openFileDialog1.Filter = "TXT Files|*.txt";
             openFileDialog1.InitialDirectory = Application.StartupPath;
+
             String final = "";
+
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 StreamReader s = new StreamReader(openFileDialog1.FileName);
@@ -53,6 +57,7 @@ namespace FormProjIS
                     string[] nomes = linha[0].Split(' ');
                     char mc = ')';
                     string nome = "";
+
                     for (int i = 4; i < nomes.Length; i++)
                     {
                         nome += nomes[i];
@@ -68,6 +73,25 @@ namespace FormProjIS
                 }
             }
             rtb_display.Text = final;
+        }
+
+        private void bt_carregarEXCEL_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "EXCEL Files|*.xsd";
+            openFileDialog1.InitialDirectory = Application.StartupPath;
+
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Excel.Application excelApplication = new Excel.Application();
+                excelApplication.Visible = false;
+                Excel.Workbook excelWorkBook = excelApplication.Workbooks.Open(openFileDialog1.FileName);
+                Excel.Worksheet excelWorkSheet = excelWorkBook.ActiveSheet;
+
+                while (excelWorkSheet.Rows.Count != null)
+                {
+
+                }
+            }
         }
     }
 }

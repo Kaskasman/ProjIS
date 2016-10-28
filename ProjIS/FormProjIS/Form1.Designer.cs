@@ -65,6 +65,7 @@
             this.bt_carregarEXCEL.TabIndex = 2;
             this.bt_carregarEXCEL.Text = "EXCEL";
             this.bt_carregarEXCEL.UseVisualStyleBackColor = true;
+            this.bt_carregarEXCEL.Click += new System.EventHandler(this.bt_carregarEXCEL_Click);
             // 
             // panel1
             // 

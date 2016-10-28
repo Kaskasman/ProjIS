@@ -54,10 +54,14 @@ namespace Handler
             Excel.Application excelApplication = new Excel.Application();
             excelApplication.Visible = false;
             Excel.Workbook excelWorkBook = excelApplication.Workbooks.Open("calorias_restaurantes.xls");
+            Excel.Worksheet excelWorkSheet = excelWorkBook.ActiveSheet;
 
             List<Restaurante> restaurantes = new List<Restaurante>();
 
-
+            for (int i = 1; i <= excelWorkSheet.Rows.Count; i++)
+            {
+                //lista restaurantes
+            }
         }
     }
 }

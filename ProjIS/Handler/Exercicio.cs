@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Handler
 {
-    public class Exercicios
+    public class Exercicio
     {
         private string nome;
         private int calorias;
         private float met;
 
-        public Exercicios(string nome, int calorias, float met)
+        public Exercicio(string nome, int calorias, float met)
         {
             this.Nome = nome;
             this.Calorias = calorias;

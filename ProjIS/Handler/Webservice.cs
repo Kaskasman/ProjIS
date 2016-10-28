@@ -17,7 +17,7 @@ namespace Handler
             using (StreamReader r = new StreamReader("calorias_exercicio.js"))
             {
                 string json = r.ReadToEnd();
-                List<Exercicios> execicios = JsonConvert.DeserializeObject<List<Exercicios>>(json);
+                List<Exercicio> execicios = JsonConvert.DeserializeObject<List<Exercicio>>(json);
             }
 
             StreamReader s = new StreamReader("calorias_Vegetais.txt");
@@ -33,6 +33,15 @@ namespace Handler
         }
 
 
-        
+        public void LoadExcel()
+        {
+            Excel.Application excelApplication = new Excel.Application();
+            excelApplication.Visible = false;
+            Excel.Workbook excelWorkBook = excelApplication.Workbooks.Open("calorias_restaurantes.xls");
+
+            List<Restaurante> restaurantes = new List<Restaurante>();
+
+
+        }
     }
 }

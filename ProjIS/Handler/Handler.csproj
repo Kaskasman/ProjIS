@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exercicios.cs" />
+    <Compile Include="Vegetais.cs" />
     <Compile Include="Webservice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,7 +79,12 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Files\calorias_restaurantes.xls" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Files\calorias_exercicios.js" />
+    <Content Include="Files\calorias_vegetais.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

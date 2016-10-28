@@ -28,75 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.calorias = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.met = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
+            this.bt_carregarJS = new System.Windows.Forms.Button();
+            this.bt_carregarTXT = new System.Windows.Forms.Button();
+            this.bt_carregarEXCEL = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.rtb_display = new System.Windows.Forms.RichTextBox();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listView1
+            // bt_carregarJS
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.nome,
-            this.calorias,
-            this.met});
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(12, 12);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(299, 170);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.bt_carregarJS.Location = new System.Drawing.Point(3, 3);
+            this.bt_carregarJS.Name = "bt_carregarJS";
+            this.bt_carregarJS.Size = new System.Drawing.Size(103, 54);
+            this.bt_carregarJS.TabIndex = 0;
+            this.bt_carregarJS.Text = "JS";
+            this.bt_carregarJS.UseVisualStyleBackColor = true;
+            this.bt_carregarJS.Click += new System.EventHandler(this.bt_carregarJS_Click);
             // 
-            // columnHeader1
+            // bt_carregarTXT
             // 
-            this.columnHeader1.Text = "";
+            this.bt_carregarTXT.Location = new System.Drawing.Point(3, 63);
+            this.bt_carregarTXT.Name = "bt_carregarTXT";
+            this.bt_carregarTXT.Size = new System.Drawing.Size(103, 54);
+            this.bt_carregarTXT.TabIndex = 1;
+            this.bt_carregarTXT.Text = "TXT";
+            this.bt_carregarTXT.UseVisualStyleBackColor = true;
+            this.bt_carregarTXT.Click += new System.EventHandler(this.bt_carregarTXT_Click);
             // 
-            // nome
+            // bt_carregarEXCEL
             // 
-            this.nome.Text = "Nome";
+            this.bt_carregarEXCEL.Location = new System.Drawing.Point(3, 123);
+            this.bt_carregarEXCEL.Name = "bt_carregarEXCEL";
+            this.bt_carregarEXCEL.Size = new System.Drawing.Size(103, 54);
+            this.bt_carregarEXCEL.TabIndex = 2;
+            this.bt_carregarEXCEL.Text = "EXCEL";
+            this.bt_carregarEXCEL.UseVisualStyleBackColor = true;
             // 
-            // calorias
+            // panel1
             // 
-            this.calorias.Text = "Calorias";
+            this.panel1.Controls.Add(this.bt_carregarEXCEL);
+            this.panel1.Controls.Add(this.bt_carregarJS);
+            this.panel1.Controls.Add(this.bt_carregarTXT);
+            this.panel1.Location = new System.Drawing.Point(835, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(108, 183);
+            this.panel1.TabIndex = 3;
             // 
-            // met
+            // openFileDialog1
             // 
-            this.met.Text = "Met";
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button1
+            // rtb_display
             // 
-            this.button1.Location = new System.Drawing.Point(362, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add Data JSON";
-            this.button1.UseVisualStyleBackColor = true;
+            this.rtb_display.Location = new System.Drawing.Point(12, 28);
+            this.rtb_display.Name = "rtb_display";
+            this.rtb_display.Size = new System.Drawing.Size(817, 183);
+            this.rtb_display.TabIndex = 4;
+            this.rtb_display.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 359);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listView1);
+            this.ClientSize = new System.Drawing.Size(955, 576);
+            this.Controls.Add(this.rtb_display);
+            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader nome;
-        private System.Windows.Forms.ColumnHeader calorias;
-        private System.Windows.Forms.ColumnHeader met;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bt_carregarJS;
+        private System.Windows.Forms.Button bt_carregarTXT;
+        private System.Windows.Forms.Button bt_carregarEXCEL;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.RichTextBox rtb_display;
     }
 }
 

@@ -31,10 +31,15 @@ namespace Handler
             set { calorias = value; }
         }
 
-        public string[] Dose
+        public string Dose
         {
             get { return dose; }
             set { dose = value; }
+        }
+
+        public override string ToString()
+        {
+            return nome + " " + calorias + " " + dose;
         }
     }
 }

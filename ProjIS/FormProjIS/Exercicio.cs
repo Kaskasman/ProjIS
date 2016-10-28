@@ -57,5 +57,10 @@ namespace Handler
                 met = value;
             }
         }
+
+        public override string ToString()
+        {
+            return nome + " " + calorias + " " + met;
+        }
     }
 }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Handler
 {
-    public class Vegetais
+    public class Vegetal
     {
         private string nome;
         private int calorias;
-        private string[] dose;
+        private string dose;
 
-        public Vegetais(string nome, int calorias, string[] dose)
+        public Vegetal(string nome, int calorias, string dose)
         {
             this.nome = nome;
             this.calorias = calorias;

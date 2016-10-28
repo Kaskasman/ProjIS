@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exercicios.cs" />
-    <Compile Include="Vegetais.cs" />
+    <Compile Include="Vegetal.cs" />
     <Compile Include="Webservice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

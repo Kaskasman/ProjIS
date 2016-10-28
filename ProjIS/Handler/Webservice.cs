@@ -12,6 +12,7 @@ namespace Handler
     public class Webservice
     {
         private string line;
+
         public void LoadJson()
         {
             using (StreamReader r = new StreamReader("calorias_exercicio.js"))
@@ -19,19 +20,34 @@ namespace Handler
                 string json = r.ReadToEnd();
                 List<Exercicio> execicios = JsonConvert.DeserializeObject<List<Exercicio>>(json);
             }
+        }
+
+        public void LoadTxt()
+        {
 
             StreamReader s = new StreamReader("calorias_Vegetais.txt");
-            List<Vegetais> vegetais = new List<Vegetais>();
+            List<Vegetal> vegetais = new List<Vegetal>();
 
             while ((line = s.ReadLine()) != null)
             {
                 string[] linha = line.Split('(');
                 string[] nomes = linha[0].Split(' ');
 
-                //Vegetais veg = new Vegetais(linha[4], linha[1], {});
+                string nome = "";
+                for (int i = 4; i < nomes.Length; i++)
+                {
+                    nome += nomes[i];
+                }
+
+                if (linha.Length > 2)
+                {
+                    nome += linha[1];
+                }
+                String dosagem = linha[linha.Length - 1].Trim(')');
+
+                Vegetal veg = new Vegetal(nome, Convert.ToInt16(nomes[1]), dosagem);
             }
         }
-
 
         public void LoadExcel()
         {

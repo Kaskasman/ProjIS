@@ -17,6 +17,8 @@ namespace FormProjIS
     public partial class Form1 : Form
     {
         private List<Exercicio> exercicios = new List<Exercicio>();
+        private List<Vegetal> vegetais = new List<Vegetal>();
+        private List<Restaurante> restaurantes = new List<Restaurante>();
         private String line;
 
         public Form1()
@@ -49,26 +51,34 @@ namespace FormProjIS
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 StreamReader s = new StreamReader(openFileDialog1.FileName);
-                List<Vegetal> vegetais = new List<Vegetal>();
                 
                 while ((line = s.ReadLine()) != null)
                 {
-                    string[] linha = line.Split('(');
+                    string[] linha = line.Split('(', ')');
                     string[] nomes = linha[0].Split(' ');
-                    char mc = ')';
                     string nome = "";
+                    string estado = "";
+                    string calorias = "";
+                    string dose = "";
 
                     for (int i = 4; i < nomes.Length; i++)
                     {
                         nome += nomes[i];
                     }
 
-                    if (linha.Length > 2)
+                    if (linha.Length > 3)
                     {
-                        nome += linha[1];
+                        estado += linha[1];
+                        dose += linha[3];
+                        calorias += nomes[1];
+                    }
+                    else if(linha.Length <= 3)
+                    {
+                        dose += linha[1];
+                        calorias += nomes[1];
                     }
 
-                    Vegetal veg = new Vegetal(nome, Convert.ToInt16(nomes[1]), linha[linha.Length - 1].TrimEnd(mc));
+                    Vegetal veg = new Vegetal(nome, estado, calorias, dose);
                     final += veg.ToString() + "\n";
                 }
             }

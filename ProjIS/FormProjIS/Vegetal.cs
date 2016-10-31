@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +10,14 @@ namespace Handler
     public class Vegetal
     {
         private string nome;
-        private int calorias;
+        private string calorias;
         private string dose;
+        private string estado;
 
-        public Vegetal(string nome, int calorias, string dose)
+        public Vegetal(string nome, string estado, string calorias, string dose)
         {
             this.nome = nome;
+            this.estado = estado;
             this.calorias = calorias;
             this.dose = dose;
         }
@@ -25,7 +28,13 @@ namespace Handler
             set { nome = value; }
         }
 
-        public int Calorias
+        public string Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
+
+        public string Calorias
         {
             get { return calorias; }
             set { calorias = value; }
@@ -39,7 +48,7 @@ namespace Handler
 
         public override string ToString()
         {
-            return nome + " " + calorias + " " + dose;
+            return nome + " " + estado + " " + calorias + " kcal " + dose;
         }
     }
 }

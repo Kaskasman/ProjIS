@@ -12,9 +12,9 @@ namespace Handler
         private string nomeRestaurante;
         private string nome;
         private string quantidade;
-        private int calorias;
+        private string calorias;
 
-        public Restaurante(string nomeRestaurante, string nome, string quantidade, int calorias)
+        public Restaurante(string nomeRestaurante, string nome, string quantidade, string calorias)
         {
             this.nomeRestaurante = nomeRestaurante;
             this.nome = nome;
@@ -40,10 +40,15 @@ namespace Handler
             set { quantidade = value; }
         }
 
-        public int Calorias
+        public string Calorias
         {
             get { return calorias; }
             set { calorias = value; }
+        }
+
+        public override string ToString()
+        {
+            return nomeRestaurante + " " + nome + " " + quantidade + " " + calorias;
         }
     }
 }

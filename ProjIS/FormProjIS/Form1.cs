@@ -77,8 +77,14 @@ namespace FormProjIS
 
         private void bt_carregarEXCEL_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "EXCEL Files|*.xsd";
+            openFileDialog1.Filter = "EXCEL Files|*.xls";
             openFileDialog1.InitialDirectory = Application.StartupPath;
+
+            string final = "";
+            string nomeR = "";
+            string nome = "";
+            string quantidade = "";
+            string calorias = "";
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -86,12 +92,23 @@ namespace FormProjIS
                 excelApplication.Visible = false;
                 Excel.Workbook excelWorkBook = excelApplication.Workbooks.Open(openFileDialog1.FileName);
                 Excel.Worksheet excelWorkSheet = excelWorkBook.ActiveSheet;
+                Excel.Range excelRange = excelWorkSheet.UsedRange;
 
-                while (excelWorkSheet.Rows.Count != null)
+                //int numberOfRows = excelRange.Rows.Count;
+                //int numberOfCols = excelRange.Columns.Count;
+
+                for (int row = 2; row < excelRange.Rows.Count; row++)
                 {
+                    //nomeR = excelWorkSheet.Cells[row, 1].Value;
+                    //nome = excelWorkSheet.Cells[row, 2].Value;
+                    //quantidade = excelWorkSheet.Cells[row, 3].Value;
+                    //calorias = excelWorkSheet.Cells[row, 4].Value;
 
-                }
+                    Restaurante rest = new Restaurante(excelWorkSheet.Cells[row, 1].Value, excelWorkSheet.Cells[row, 2].Value, excelWorkSheet.Cells[row, 3].Value, excelWorkSheet.Cells[row, 4].Value);
+                    final += rest.ToString() + "\n";                   
+                }              
             }
+            rtb_display.Text = final;
         }
     }
 }

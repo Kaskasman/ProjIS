@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified"
+ elementFormDefault="qualified"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Restriçoes -->
+
+  
+  
+  <!-- Simple Type -->
+  
+  <xs:simpleType name="nomeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="kcalType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="quantidadeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="estadoType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  
+  <!-- Schema -->
+
+  <xs:complexType name="vegetalType">
+    <xs:sequence>
+      <xs:element name="nome" type="nomeType"/>
+      <xs:element name="kcal" type="kcalType"/>
+      <xs:element name="quantidade" type="quantidadeType"/>
+      <xs:element name="estado" type="estadoType" minOccurs="0" maxOccurs ="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="vegetaisType">
+    <xs:sequence>
+      <xs:element name="vegetal" type="vegetalType" minOccurs="0" maxOccurs ="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Root -->
+
+  <xs:element name="vegetais" type="vegetaisType"/>
+
+</xs:schema>

@@ -11,14 +11,14 @@ using System.Windows.Forms;
 using Handler;
 using Newtonsoft.Json;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Xml;
+using Newtonsoft.Json.Linq;
 
 namespace FormProjIS
 {
     public partial class Form1 : Form
     {
         private List<Exercicio> exercicios = new List<Exercicio>();
-        private List<Vegetal> vegetais = new List<Vegetal>();
-        private List<Restaurante> restaurantes = new List<Restaurante>();
         private String line;
 
         public Form1()
@@ -33,9 +33,38 @@ namespace FormProjIS
            
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                XmlDocument doc = new XmlDocument();
+
+                XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", null, null);
+                doc.AppendChild(dec);
+
+                XmlElement exerciciosXml = doc.CreateElement("exercicios");
+                doc.AppendChild(exerciciosXml);
+
                 using (StreamReader r = new StreamReader(openFileDialog1.FileName))
                 {
                     string json = r.ReadToEnd();
+
+                    //fazer splits por { e :
+
+                    XmlElement exercicioXml = doc.CreateElement("exercicio");
+
+                    XmlElement nomeXml = doc.CreateElement("nome");
+                    nomeXml.InnerText = JObject.Parse(json)["Nome"].ToString();
+
+                    XmlElement kcalXml = doc.CreateElement("kcal");
+                    kcalXml.InnerText = JObject.Parse(json)["Calorias"].ToString();
+
+                    XmlElement metXml = doc.CreateElement("met");
+                    metXml.InnerText = JObject.Parse(json)["Met"].ToString();
+
+                    exercicioXml.AppendChild(nomeXml);
+                    exercicioXml.AppendChild(kcalXml);
+                    exercicioXml.AppendChild(metXml);
+                    exerciciosXml.AppendChild(exercicioXml);
+
+                    doc.Save(@"exerciciosXml.xml");
+
                     exercicios = JsonConvert.DeserializeObject<List<Exercicio>>(json);
                 }
             }
@@ -78,6 +107,38 @@ namespace FormProjIS
                         calorias += nomes[1];
                     }
 
+                    XmlDocument doc = new XmlDocument();
+
+                    XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", null, null);
+                    doc.AppendChild(dec);
+
+                    XmlElement vegetais = doc.CreateElement("vegetais");
+                    doc.AppendChild(vegetais);
+
+                    XmlElement vegetal = doc.CreateElement("vegetal");
+
+                    XmlElement nomeXml = doc.CreateElement("nome");
+                    nomeXml.InnerText = nome;
+
+                    XmlElement kcalXml = doc.CreateElement("kcal");
+                    kcalXml.InnerText = calorias;
+
+                    XmlElement estadoXml = doc.CreateElement("estado");
+                    estadoXml.InnerText = estado;
+
+                    XmlElement doseXml = doc.CreateElement("dose");
+                    doseXml.InnerText = dose;
+
+                    vegetal.AppendChild(nomeXml);
+                    vegetal.AppendChild(kcalXml);
+                    vegetal.AppendChild(estadoXml);
+                    vegetal.AppendChild(doseXml);
+                    vegetais.AppendChild(vegetal);
+
+                    doc.Save(@"vegetaisXml.xml");
+                    
+
+                    //para tirar futuro
                     Vegetal veg = new Vegetal(nome, estado, calorias, dose);
                     final += veg.ToString() + "\n";
                 }
@@ -91,10 +152,6 @@ namespace FormProjIS
             openFileDialog1.InitialDirectory = Application.StartupPath;
 
             string final = "";
-            string nomeR = "";
-            string nome = "";
-            string quantidade = "";
-            string calorias = "";
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -107,45 +164,58 @@ namespace FormProjIS
                 //int numberOfRows = excelRange.Rows.Count;
                 //int numberOfCols = excelRange.Columns.Count;
 
+                XmlDocument doc = new XmlDocument();
+
+                XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", null, null);
+                doc.AppendChild(dec);
+
+                XmlElement restaurantes = doc.CreateElement("restaurantes");
+                doc.AppendChild(restaurantes);
+
                 for (int row = 2; row < excelRange.Rows.Count; row++)
                 {
-                    //nomeR = excelWorkSheet.Cells[row, 1].Value;
-                    //nome = excelWorkSheet.Cells[row, 2].Value;
-                    //quantidade = excelWorkSheet.Cells[row, 3].Value;
-                    //calorias = excelWorkSheet.Cells[row, 4].Value;
+                    XmlElement restaurante = doc.CreateElement("restaurante");
+                    restaurante.SetAttribute("nomeRestaurante", excelWorkSheet.Cells[row, 1].Value); //Convert.ToString(nomeR)
 
+                    // ver se o restaurante ja foi inserido se sim continuar a inserir se nao inserir novo restaurante e pratos
+                    if (excelWorkSheet.Cells[row, 1].Value == restaurante)
+                    {
+                        
+                    }
+
+                    // criar FOR para cada restaurante
+                    //for (int rowLinha = 2; rowLinha < excelRange.Rows.Count; rowLinha++)
+                    //{
+                        XmlElement prato = doc.CreateElement("prato");
+
+                        XmlElement nomeXml = doc.CreateElement("nome");
+                        nomeXml.InnerText = excelWorkSheet.Cells[row, 2].Value;
+
+                        XmlElement kcalXml = doc.CreateElement("kcal");
+                        kcalXml.InnerText = excelWorkSheet.Cells[row, 4].Value;
+
+                        XmlElement quantidadeXml = doc.CreateElement("quantidade");
+                        quantidadeXml.InnerText = excelWorkSheet.Cells[row, 3].Value;
+
+                        prato.AppendChild(nomeXml);
+                        prato.AppendChild(kcalXml);
+                        prato.AppendChild(quantidadeXml);
+                        restaurante.AppendChild(prato);
+                        restaurantes.AppendChild(restaurante);
+
+                    //doc.Save(@"restauranteXml.xml");
+                    //}
+
+                    doc.Save(@"restaurantesXml.xml");
+
+                    //para tirar futuro
                     Restaurante rest = new Restaurante(excelWorkSheet.Cells[row, 1].Value, excelWorkSheet.Cells[row, 2].Value, excelWorkSheet.Cells[row, 3].Value, excelWorkSheet.Cells[row, 4].Value);
-                    final += rest.ToString() + "\n";                   
+                    final += rest.ToString() + "\n";
                 }              
             }
+
+            rtb_display.Clear();
             rtb_display.Text = final;
         }
     }
 }
-
-//public void LoadTxt()
-//{
-
-//    StreamReader s = new StreamReader("calorias_Vegetais.txt");
-//    List<Vegetal> vegetais = new List<Vegetal>();
-
-//    while ((line = s.ReadLine()) != null)
-//    {
-//        string[] linha = line.Split('(');
-//        string[] nomes = linha[0].Split(' ');
-
-//        string nome = "";
-//        for (int i = 4; i < nomes.Length; i++)
-//        {
-//            nome += nomes[i];
-//        }
-
-//        if (linha.Length > 2)
-//        {
-//            nome += linha[1];
-//        }
-//        String dosagem = linha[linha.Length - 1].Trim(')');
-
-//        Vegetal veg = new Vegetal(nome, Convert.ToInt16(nomes[1]), dosagem);
-//    }
-//}

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified"
+ elementFormDefault="qualified"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Restriçoes -->
+
+
+
+  <!-- Simple Type -->
+
+  <xs:simpleType name="nomeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="kcalType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="metType">
+    <xs:restriction base="xs:double"/>
+  </xs:simpleType>
+
+  <!-- Schema -->
+
+  <xs:complexType name="exercicioType">
+    <xs:sequence>
+      <xs:element name="nome" type="nomeType"/>
+      <xs:element name="kcal" type="kcalType"/>
+      <xs:element name="met" type="metType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="exerciciosType">
+    <xs:sequence>
+      <xs:element name="exercicio" type="exercicioType" minOccurs="0" maxOccurs ="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Root -->
+
+  <xs:element name="exercicios" type="exerciciosType"/>
+
+</xs:schema>

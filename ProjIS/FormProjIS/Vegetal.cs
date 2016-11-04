@@ -48,7 +48,7 @@ namespace Handler
 
         public override string ToString()
         {
-            return nome + " " + estado + " " + calorias + " kcal " + dose;
+            return nome + "|" + estado + "|" + calorias + " kcal|" + dose;
         }
     }
 }

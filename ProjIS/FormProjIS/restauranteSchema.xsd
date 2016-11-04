@@ -17,8 +17,8 @@
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
 
-  <xs:simpleType name="metType">
-    <xs:restriction base="xs:double"/>
+  <xs:simpleType name="quantidadeType">
+    <xs:restriction base="xs:string"/>
   </xs:simpleType>
   
   <!-- Schema -->
@@ -27,7 +27,7 @@
     <xs:sequence>
       <xs:element name="nome" type="nomeType"/>
       <xs:element name="kcal" type="kcalType"/>
-      <xs:element name="quantidade" type="metType"/>
+      <xs:element name="quantidade" type="quantidadeType"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -46,6 +46,6 @@
 
   <!-- Root -->
 
-  <xs:element name="restaurantes" type="restauranteType"/>
+  <xs:element name="restaurantes" type="restaurantesType"/>
 
 </xs:schema>

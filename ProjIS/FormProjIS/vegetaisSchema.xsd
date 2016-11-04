@@ -17,7 +17,7 @@
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
 
-  <xs:simpleType name="quantidadeType">
+  <xs:simpleType name="doseType">
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
 
@@ -31,8 +31,8 @@
     <xs:sequence>
       <xs:element name="nome" type="nomeType"/>
       <xs:element name="kcal" type="kcalType"/>
-      <xs:element name="quantidade" type="quantidadeType"/>
       <xs:element name="estado" type="estadoType" minOccurs="0" maxOccurs ="1"/>
+      <xs:element name="dose" type="doseType"/>
     </xs:sequence>
   </xs:complexType>
 

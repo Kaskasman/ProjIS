@@ -217,12 +217,7 @@ namespace FormProjIS
                 final = System.IO.Directory.GetCurrentDirectory().ToString() + "\\restaurantesXml.xml";
                 FormProjIS.Properties.Settings.Default.XML = final;
                 Properties.Settings.Default.Save();
-
-                //para tirar futuro
-                Restaurante rest = new Restaurante(excelWorkSheet.Cells[row, 1].Value,
-                excelWorkSheet.Cells[row, 2].Value, excelWorkSheet.Cells[row, 3].Value,
-                excelWorkSheet.Cells[row, 4].Value);
-                final += rest.ToString() + "\n";
+                
             }
             return final;
         }

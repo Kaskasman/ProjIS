@@ -37,6 +37,7 @@ namespace FormProjIS
                 {
                     String filePath = HandlerXmlXsdcs.criarXMLJson(openFileDialog1.FileName);
                     tb_filePath.Text = filePath;
+                    xml = filePath;
                     MessageBox.Show("XML criado com sucesso", "Sucesso", MessageBoxButtons.OK);
                 }
                 catch (Exception ex)
@@ -59,6 +60,7 @@ namespace FormProjIS
                 {
                     String filePath = HandlerXmlXsdcs.criarXMLTxt(openFileDialog1.FileName);
                     tb_filePath.Text = filePath;
+                    xml = filePath;
                     MessageBox.Show("XML criado com sucesso", "Sucesso", MessageBoxButtons.OK);
                 }
                 catch (Exception ex)
@@ -80,6 +82,7 @@ namespace FormProjIS
                 {
                     String filePath = HandlerXmlXsdcs.criarXMLExcel(openFileDialog1.FileName);
                     tb_filePath.Text = filePath;
+                    xml = filePath;
                     MessageBox.Show("XML criado com sucesso", "Sucesso", MessageBoxButtons.OK);
                 }
                 catch (Exception ex)

@@ -93,6 +93,8 @@ namespace FormProjIS
                 string nome = "";
                 string estado = "-";
                 string calorias = "";
+                string[] auxDose;
+                string tipoDose = "";
                 string dose = "";
 
                 for (int i = 4; i < nomes.Length; i++)
@@ -103,8 +105,23 @@ namespace FormProjIS
                 if (linha.Length > 3)
                 {
                     estado = linha[linha.Length - 4];
-                    dose += linha[linha.Length - 2];
                     calorias += nomes[1];
+
+                    auxDose = linha[linha.Length - 2].Split(' ');
+                    int count = 1;
+                    foreach (string v in auxDose)
+                    {
+                        if (count == 1)
+                        {
+                            tipoDose = v;
+                            count++;
+                        }
+                        else
+                        {
+                            dose += v;
+                        }
+                    }
+                    
                     if (linha.Length >= 4)
                     {
                         nome += linha[1];
@@ -112,7 +129,20 @@ namespace FormProjIS
                 }
                 else if (linha.Length <= 3)
                 {
-                    dose += linha[linha.Length - 2];
+                    auxDose = linha[linha.Length - 2].Split(' ');
+                    int count = 1;
+                    foreach (string v in auxDose)
+                    {
+                        if (count == 1)
+                        {
+                            tipoDose = v;
+                            count++;
+                        }
+                        else
+                        {
+                            dose += v;
+                        }
+                    }
                     calorias += nomes[1];
                 }
 
@@ -127,13 +157,17 @@ namespace FormProjIS
                 XmlElement estadoXml = doc.CreateElement("estado");
                 estadoXml.InnerText = estado;
 
+                XmlElement tipoDeDoseXml = doc.CreateElement("tipoDose");
+                tipoDeDoseXml.InnerText = dose;
+
                 XmlElement doseXml = doc.CreateElement("dose");
                 doseXml.InnerText = dose;
 
                 vegetal.AppendChild(nomeXml);
                 vegetal.AppendChild(kcalXml);
                 vegetal.AppendChild(estadoXml);
-                vegetal.AppendChild(doseXml);
+                vegetal.AppendChild(tipoDeDoseXml);
+                tipoDeDoseXml.AppendChild(doseXml);
                 vegetais.AppendChild(vegetal);
             }
             doc.Save(@"vegetaisXml.xml");

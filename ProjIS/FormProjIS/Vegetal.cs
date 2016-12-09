@@ -13,12 +13,14 @@ namespace FormProjIS
         private string calorias;
         private string dose;
         private string estado;
+        private string tipoDeDose;
 
-        public Vegetal(string nome, string estado, string calorias, string dose)
+        public Vegetal(string nome, string estado, string calorias, string tipoDeDose, string dose)
         {
             this.nome = nome;
             this.estado = estado;
             this.calorias = calorias;
+            this.tipoDeDose = tipoDeDose;
             this.dose = dose;
         }
 
@@ -44,6 +46,12 @@ namespace FormProjIS
         {
             get { return dose; }
             set { dose = value; }
+        }
+
+        public string TipoDeDose
+        {
+            get { return tipoDeDose; }
+            set { tipoDeDose = value; }
         }
 
         public override string ToString()

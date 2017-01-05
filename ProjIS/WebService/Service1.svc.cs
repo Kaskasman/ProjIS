@@ -202,6 +202,12 @@ namespace WebService
 
         // ------ PARA FAZER ------
 
+        // ADMINISTRACAO
+
+        // MIGRACAO DADOS
+        // VALIDAR
+        // SUBMETER
+
         // ADD
         public void AddVegetal(Vegetal vegatal, string token)
         {
@@ -307,7 +313,7 @@ namespace WebService
             checkAuthentication(token, true);
         }
 
-        public void DeletePrato(string title, string token) 
+        public void DeletePrato(string title, string token)
         {
             checkAuthentication(token, true);
             XmlDocument doc = new XmlDocument();
@@ -386,7 +392,8 @@ namespace WebService
             return book;
         }
 
-        public List<Vegetal> GetVegetaisByCalorias(string category, string token)
+        // a partir de calorias - return vegetais com teor calorico semelhante
+        public List<Vegetal> GetVegetaisByCalorias(int calorias, string token)
         {
             checkAuthentication(token, false);
             XmlDocument doc = new XmlDocument();
@@ -408,7 +415,8 @@ namespace WebService
             return books;
         }
 
-        public List<Exercicio> GetExerciciosByCalorias(string category, string token)
+        // a partir de calorias - return quantidade de exercicio necessario para queimar as calorias
+        public List<Exercicio> GetExerciciosByCalorias(int calorias, string token)
         {
             checkAuthentication(token, false);
             XmlDocument doc = new XmlDocument();
@@ -429,5 +437,20 @@ namespace WebService
 
             return books;
         }
+
+
+
+        // ANDROID
+        /*
+         * public void FastFoodCalculator(){
+         * }
+         * 
+         * Recebe lista de refeicoes fast food
+         * envia soma calorica das refeicoes
+         * List<Exercicio> a quantidade de exercicio necessario para queimar as calorias
+         * enviar resultado
+         * List<Vegetal> vegetais com teor calorico semelhante
+         * enviar resultado 
+         */
     }
 }

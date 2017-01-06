@@ -57,26 +57,17 @@ namespace WebService
         [WebInvoke(Method = "DELETE", UriTemplate = "/exercicio/{nome}?token={token}")]
         void DeleteExercicio(string nome, string token); 
 
-        // ----- delete refeicao tem de ter restaurante e prato -----
         [OperationContract(Name = "DeleteRefeicaoByNome")]
         [WebInvoke(Method = "DELETE", UriTemplate = "/restaurante/{nome}?token={token}")]
         void DeletePrato(string nome, string token);
 
-
-
-        /// <summary>
-        /// ////////
-        /// </summary>
-        /// <param name="nome"></param>
-        /// <param name="token"></param>
-        /// <returns></returns>
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //Android
 
         [OperationContract(Name = "GetInformacaoTotalAndroid")]
         [WebInvoke(Method = "POST", UriTemplate = "/GetInformacaoTotalAndroid/token={token}")]
         String GetInformacaoTotalAndroid(List<Restaurante> conjuntoPratos, string token);
-
 
         //Vegetal
         [OperationContract(Name = "GetCaloriasByVegetal")]
@@ -95,8 +86,6 @@ namespace WebService
         [WebInvoke(Method = "POST", UriTemplate = "/GetSomatorioVegetaisByCalorias/calorias?token={token}")]
         List<Vegetal> GetSomatorioVegetaisByCalorias(int calorias, string token);
 
-
-
         //Exercicio
         [OperationContract(Name = "GetCaloriasByExercicio")]
         [WebInvoke(Method = "POST", UriTemplate = "/exercicio/{nome}?token={token}")]
@@ -109,7 +98,6 @@ namespace WebService
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "/GetExerciciosByCalorias/calorias?token={token}")]
         List<Exercicio> GetExerciciosByCalorias(int calorias, string token);
-
 
         //Prato + Restaurante
         [OperationContract(Name = "GetCaloriasByPrato")]
@@ -127,11 +115,6 @@ namespace WebService
         [OperationContract(Name = "GetCaloriasByConjuntoPrato")]
         [WebInvoke(Method = "POST", UriTemplate = "/GetCaloriasByConjuntoPrato/token={token}")]
         Int32 GetCaloriasByConjuntoPrato(List<Restaurante> conjuntoPrato, string token);
-
-
-
-
-
     }
 
 

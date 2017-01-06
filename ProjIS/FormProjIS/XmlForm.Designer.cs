@@ -1,6 +1,6 @@
 ﻿namespace FormProjIS
 {
-    partial class Form1
+    partial class XmlForm
     {
         /// <summary>
         /// Required designer variable.

@@ -16,12 +16,12 @@ using Newtonsoft.Json.Linq;
 
 namespace FormProjIS
 {
-    public partial class Form1 : Form
+    public partial class XmlForm : Form
     {
         private static String xml;
         private static String xsd;
 
-        public Form1()
+        public XmlForm()
         {
             InitializeComponent();
         }

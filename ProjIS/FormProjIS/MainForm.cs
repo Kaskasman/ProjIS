@@ -98,89 +98,83 @@ namespace FormProjIS
                     switch (comboBoxOperation.Text)
                     {
                         case "ADD - Vegetal":
-                            Vegetal[] vegetais = client.AddVegetal(token);
-                            foreach (Vegetal b in vegetais)
+                            AddVegetalForm formAddVegetal = new AddVegetalForm(client, token);
+                            DialogResult dialogResultVegetal = formAddVegetal.ShowDialog();
+                            if (dialogResultVegetal == DialogResult.OK)
                             {
-                                textBoxOutput.Text += printBook(b) + Environment.NewLine;
+                                MessageBox.Show("Vegetal Adicionado com Sucesso.");
                             }
                             break;
+
                         case "ADD - Exercicio":
-                            Book[] books = client.GetBooks(token);
-                            foreach (Book b in books)
+                            AddExercicio formAddExercicio = new AddExercicio(client, token);
+                            DialogResult dialogResultExercicio = formAddExercicio.ShowDialog();
+                            if (dialogResultExercicio == DialogResult.OK)
                             {
-                                textBoxOutput.Text += printBook(b) + Environment.NewLine;
+                                MessageBox.Show("Exercicio Adicionado com Sucesso.");
                             }
                             break;
+
                         case "ADD - Pratos Fast Food":
-                            Book[] books = client.GetBooks(token);
-                            foreach (Book b in books)
+                            AddPratoForm formAddPrato = new AddPratoForm(client, token);
+                            DialogResult dialogResultPrato = formAddPrato.ShowDialog();
+                            if (dialogResultPrato == DialogResult.OK)
                             {
-                                textBoxOutput.Text += printBook(b) + Environment.NewLine;
+                                MessageBox.Show("Exercicio Adicionado com Sucesso.");
                             }
                             break;
+
                         case "DELETE - Vegetal":
-                            Book[] books = client.GetBooks(token);
-                            foreach (Book b in books)
+                            DeleteVegetalForm formDeleteVegetal = new DeleteVegetalForm(client, token);
+                            DialogResult dialogResultDelVeg = formDeleteVegetal.ShowDialog();
+                            if (dialogResultDelVeg == DialogResult.OK)
                             {
-                                textBoxOutput.Text += printBook(b) + Environment.NewLine;
+                                MessageBox.Show("Vegetais Eleminados com Sucesso.");
                             }
                             break;
+
                         case "DELETE - Exercicio":
-                            Book[] books = client.GetBooks(token);
-                            foreach (Book b in books)
+                            DeleteExercicioForm formDeleteExercicio = new DeleteExercicioForm(client, token);
+                            DialogResult dialogResultDelExer = formDeleteExercicio.ShowDialog();
+                            if (dialogResultDelExer == DialogResult.OK)
                             {
-                                textBoxOutput.Text += printBook(b) + Environment.NewLine;
+                                MessageBox.Show("Exercicios Eleminados com Sucesso.");
                             }
                             break;
+
                         case "DELETE - Prato Fast Food":
-                            Book[] books = client.GetBooks(token);
-                            foreach (Book b in books)
+                            DeletePratoForm formDeletePrato = new DeletePratoForm(client, token);
+                            DialogResult dialogResultDelPrato = formDeletePrato.ShowDialog();
+                            if (dialogResultDelPrato == DialogResult.OK)
                             {
-                                textBoxOutput.Text += printBook(b) + Environment.NewLine;
+                                MessageBox.Show("Pratos Eleminados com Sucesso.");
                             }
                             break;
-                        case "GET - Vegetais BY Nome":
-                            Book[] books = client.GetBooks(token);
-                            foreach (Book b in books)
-                            {
-                                textBoxOutput.Text += printBook(b) + Environment.NewLine;
-                            }
-                            break;
-                        case "GET - Exercicios BY Nome":
-                            Book[] books = client.GetBooks(token);
-                            foreach (Book b in books)
-                            {
-                                textBoxOutput.Text += printBook(b) + Environment.NewLine;
-                            }
-                            break;
-                        case "GET - Pratos Fast Food BY Nome":
-                            Book[] books = client.GetBooks(token);
-                            foreach (Book b in books)
-                            {
-                                textBoxOutput.Text += printBook(b) + Environment.NewLine;
-                            }
-                            break;
+
                         case "GET - Vegetal BY Calorias":
-                            Book[] books = client.GetBooks(token);
-                            foreach (Book b in books)
+                            Vegetal[] vegetais = client.GetCaloriasByVegetal(textBoxProcura.Text, token);
+                            foreach (Vegetal v in vegetais)
                             {
-                                textBoxOutput.Text += printBook(b) + Environment.NewLine;
+                                textBoxOutput.Text += v.ToString() + Environment.NewLine;
                             }
                             break;
+
                         case "GET - Exercicio BY Calorias":
-                            Book[] books = client.GetBooks(token);
-                            foreach (Book b in books)
+                            Exercicio[] exercicios = client.GetCaloriasByExercicio(textBoxProcura.Text, token);
+                            foreach (Exercicio exer in exercicios)
                             {
-                                textBoxOutput.Text += printBook(b) + Environment.NewLine;
+                                textBoxOutput.Text += exer.ToString() + Environment.NewLine;
                             }
                             break;
+
                         case "GET - Pratos Fast Food BY Calorias":
-                            Book[] books = client.GetBooks(token);
-                            foreach (Book b in books)
+                            Restaurante[] restaurantes = client.GetCaloriasByPrato(textBoxProcura.Text, token);
+                            foreach (Restaurante r in restaurantes)
                             {
-                                textBoxOutput.Text += printBook(b) + Environment.NewLine;
+                                textBoxOutput.Text += r.ToString() + Environment.NewLine;
                             }
                             break;
+
                         default:
                             MessageBox.Show("Operation not implemented.");
                             break;
@@ -191,33 +185,6 @@ namespace FormProjIS
             {
                 MessageBox.Show(ex.Message, "ERROR");
             }
-        }
-
-        private string printVegetal(Book book)
-        {
-            return "Title: " + book.Title + Environment.NewLine
-                   + "Author: " + book.Author + Environment.NewLine
-                   + "Year: " + book.Year + Environment.NewLine
-                   + "Price: " + book.Price + Environment.NewLine
-                   + "Category: " + book.Category + Environment.NewLine;
-        }
-
-        private string printExercicio(Book book)
-        {
-            return "Title: " + book.Title + Environment.NewLine
-                   + "Author: " + book.Author + Environment.NewLine
-                   + "Year: " + book.Year + Environment.NewLine
-                   + "Price: " + book.Price + Environment.NewLine
-                   + "Category: " + book.Category + Environment.NewLine;
-        }
-
-        private string printRestaurante(Book book)
-        {
-            return "Title: " + book.Title + Environment.NewLine
-                   + "Author: " + book.Author + Environment.NewLine
-                   + "Year: " + book.Year + Environment.NewLine
-                   + "Price: " + book.Price + Environment.NewLine
-                   + "Category: " + book.Category + Environment.NewLine;
         }
 
         private void buttonXML_Click(object sender, EventArgs e)

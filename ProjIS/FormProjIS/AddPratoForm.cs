@@ -10,25 +10,31 @@ using System.Windows.Forms;
 
 namespace FormProjIS
 {
-    public partial class AddVegetalForm : Form
+    public partial class AddPratoForm : Form
     {
         private Service1 client;
         private string token;
 
-        public AddVegetalForm(Service1 client, string token)
+        public AddPratoForm(Service1 client, string token)
         {
             InitializeComponent();
             this.client = client;
             this.token = token;
+
+            Restaurante[] restaurantesNome = client.GetRestauranteName(token);
+            foreach (Restaurante r in restaurantesNome)
+            {
+                comboBoxRestaurante.Items.Add(r);
+            }
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
             try
             {
-                Vegetal v = new Vegetal(textBoxNome.Text, textBoxEstado.Text, textBoxKCal.Text, textBoxTipoDose.Text, textBoxDose.Text);
+                Restaurante r = new Restaurante(comboBoxRestaurante.SelectedText, textBoxNome.Text, textBoxKCal.Text, textBoxQuantidade.Text);
 
-                client.AddVegetal(v, token);
+                client.AddExercicio(r, token);
 
                 this.DialogResult = DialogResult.OK;
             }
@@ -41,7 +47,7 @@ namespace FormProjIS
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

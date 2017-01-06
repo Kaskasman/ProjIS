@@ -50,11 +50,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddExercicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddExercicio.Designer.cs">
+      <DependentUpon>AddExercicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPratoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPratoForm.Designer.cs">
+      <DependentUpon>AddPratoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddVegetalForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddVegetalForm.Designer.cs">
       <DependentUpon>AddVegetalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteExercicioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteExercicioForm.Designer.cs">
+      <DependentUpon>DeleteExercicioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeletePratoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeletePratoForm.Designer.cs">
+      <DependentUpon>DeletePratoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteVegetalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteVegetalForm.Designer.cs">
+      <DependentUpon>DeleteVegetalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Exercicio.cs" />
     <Compile Include="MainForm.cs">
@@ -86,8 +116,23 @@
       <DependentUpon>SigninForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Vegetal.cs" />
+    <EmbeddedResource Include="AddExercicio.resx">
+      <DependentUpon>AddExercicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPratoForm.resx">
+      <DependentUpon>AddPratoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddVegetalForm.resx">
       <DependentUpon>AddVegetalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteExercicioForm.resx">
+      <DependentUpon>DeleteExercicioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeletePratoForm.resx">
+      <DependentUpon>DeletePratoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteVegetalForm.resx">
+      <DependentUpon>DeleteVegetalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

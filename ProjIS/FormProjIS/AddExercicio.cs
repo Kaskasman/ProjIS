@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace FormProjIS
 {
-    public partial class AddVegetalForm : Form
+    public partial class AddExercicio : Form
     {
         private Service1 client;
         private string token;
 
-        public AddVegetalForm(Service1 client, string token)
+        public AddExercicio(Service1 client, string token)
         {
             InitializeComponent();
             this.client = client;
@@ -26,9 +26,9 @@ namespace FormProjIS
         {
             try
             {
-                Vegetal v = new Vegetal(textBoxNome.Text, textBoxEstado.Text, textBoxKCal.Text, textBoxTipoDose.Text, textBoxDose.Text);
+                Exercicio exer = new Exercicio(textBoxNome.Text, int.Parse(textBoxKCal.Text), float.Parse(textBoxMet.Text));
 
-                client.AddVegetal(v, token);
+                client.AddExercicio(exer, token);
 
                 this.DialogResult = DialogResult.OK;
             }
@@ -41,7 +41,7 @@ namespace FormProjIS
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

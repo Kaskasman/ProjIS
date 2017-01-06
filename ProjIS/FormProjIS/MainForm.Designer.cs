@@ -37,6 +37,8 @@
             this.labelOutput = new System.Windows.Forms.Label();
             this.textBoxOutput = new System.Windows.Forms.TextBox();
             this.buttonXML = new System.Windows.Forms.Button();
+            this.labelProcura = new System.Windows.Forms.Label();
+            this.textBoxProcura = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -79,9 +81,6 @@
             "DELETE - Vegetal",
             "DELETE - Exercicio",
             "DELETE - Prato Fast Food",
-            "GET - Vegetais BY Nome",
-            "GET - Exercicios BY Nome",
-            "GET - Pratos Fast Food BY Nome",
             "GET - Vegetal BY Calorias",
             "GET - Exercicio BY Calorias",
             "GET - Pratos Fast Food BY Calorias"});
@@ -142,11 +141,29 @@
             this.buttonXML.UseVisualStyleBackColor = true;
             this.buttonXML.Click += new System.EventHandler(this.buttonXML_Click);
             // 
+            // labelProcura
+            // 
+            this.labelProcura.AutoSize = true;
+            this.labelProcura.Location = new System.Drawing.Point(66, 124);
+            this.labelProcura.Name = "labelProcura";
+            this.labelProcura.Size = new System.Drawing.Size(92, 13);
+            this.labelProcura.TabIndex = 29;
+            this.labelProcura.Text = "Procurar por Kcal:";
+            // 
+            // textBoxProcura
+            // 
+            this.textBoxProcura.Location = new System.Drawing.Point(164, 121);
+            this.textBoxProcura.Name = "textBoxProcura";
+            this.textBoxProcura.Size = new System.Drawing.Size(139, 20);
+            this.textBoxProcura.TabIndex = 30;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 420);
+            this.Controls.Add(this.textBoxProcura);
+            this.Controls.Add(this.labelProcura);
             this.Controls.Add(this.buttonXML);
             this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.labelOutput);
@@ -174,5 +191,7 @@
         private System.Windows.Forms.Label labelOutput;
         private System.Windows.Forms.TextBox textBoxOutput;
         private System.Windows.Forms.Button buttonXML;
+        private System.Windows.Forms.Label labelProcura;
+        private System.Windows.Forms.TextBox textBoxProcura;
     }
 }

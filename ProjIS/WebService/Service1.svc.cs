@@ -272,7 +272,7 @@ namespace WebService
             exercicioKcal.InnerText = exercicio.Calorias.ToString();
             exercicioElement.AppendChild(exercicioKcal);
 
-            XmlElement exercicioMet = doc.CreateElement("kcal");
+            XmlElement exercicioMet = doc.CreateElement("met");
             exercicioMet.InnerText = exercicio.Met.ToString();
             exercicioElement.AppendChild(exercicioMet);
 
@@ -281,7 +281,7 @@ namespace WebService
             doc.Save(EXERCICIO_FILEPATH_XML);
         }
 
-        public void AddPrato(Restaurante restaurante, string token)
+        public void AddPrato(Restaurante prato, string token)
         {
             checkAuthentication(token, true);
             XmlDocument doc = new XmlDocument();
@@ -292,23 +292,23 @@ namespace WebService
             XmlElement pratoElement = doc.CreateElement("prato");
 
             XmlElement pratoNome = doc.CreateElement("nome");
-            pratoNome.InnerText = restaurante.Nome;
+            pratoNome.InnerText = prato.Nome;
             pratoElement.AppendChild(pratoNome);
 
             XmlElement pratoKcal = doc.CreateElement("kcal");
-            pratoKcal.InnerText = restaurante.Calorias;
+            pratoKcal.InnerText = prato.Calorias;
             pratoElement.AppendChild(pratoKcal);
 
             XmlElement pratoQuantidade = doc.CreateElement("quantidade");
-            pratoQuantidade.InnerText = restaurante.Quantidade;
+            pratoQuantidade.InnerText = prato.Quantidade;
             pratoElement.AppendChild(pratoQuantidade);
 
-            XmlNode restauranteElement = doc.SelectSingleNode("//restaurante[@nomeRestaurante = '" + restaurante.NomeRestaurante + "']");
+            XmlNode restauranteElement = doc.SelectSingleNode("//restaurante[@nomeRestaurante = '" + prato.NomeRestaurante + "']");
 
             if (restauranteElement == null)
             {
                 XmlElement restaurant = doc.CreateElement("restaurante");
-                restaurant.SetAttribute("name", restaurante.NomeRestaurante);
+                restaurant.SetAttribute("name", prato.NomeRestaurante);
                 restaurant.AppendChild(pratoElement);
                 restauranteElement.AppendChild(restaurant);
             }
@@ -358,12 +358,86 @@ namespace WebService
             XmlNode restaurantesNode = doc.DocumentElement;
             XmlNode restauranteElement = doc.SelectSingleNode("//restaurante[prato[nome='" + nome +"']]");
             XmlNode nodeToRemove = doc.SelectSingleNode("//prato[nome='" + nome + "']");
-            // root.RemoveChild(nodeToRemove);
+
             restauranteElement.RemoveChild(nodeToRemove);
             doc.Save(PRATO_FILEPATH_XML);
         }
 
         // GET
+
+        public List<Vegetal> GetAllVegetais(string token)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(VEGETAL_FILEPATH_XML);
+
+            XmlNodeList nodes = doc.SelectNodes("//Vegetais");
+            List<Vegetal> lista = new List<Vegetal>();
+
+            foreach (XmlNode n in nodes)
+            {
+                    Vegetal veg = new Vegetal(n.SelectSingleNode("nome").InnerText, n.SelectSingleNode("estado").InnerText, n.SelectSingleNode("kcal").InnerText, n.SelectSingleNode("tipoDose").InnerText, n.SelectSingleNode("dose").InnerText);
+
+                    lista.Add(veg);
+                
+            }
+
+            return lista;
+        }
+
+        public List<Exercicio> GetAllExercicios(string token)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(EXERCICIO_FILEPATH_XML);
+
+            XmlNodeList nodes = doc.SelectNodes("//Exercicios");
+            List<Exercicio> lista = new List<Exercicio>();
+
+            foreach (XmlNode n in nodes)
+            {
+                Exercicio exe = new Exercicio(n.SelectSingleNode("nome").InnerText, Convert.ToInt32(n.SelectSingleNode("kcal").InnerText), float.Parse(n.SelectSingleNode("met").InnerText));
+
+                lista.Add(exe);
+            }
+
+            return lista;
+        }
+
+        public List<Restaurante> GetAllPratos(string token)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(PRATO_FILEPATH_XML);
+
+            XmlNodeList nodes = doc.SelectNodes("//Restaurante");
+            List<Restaurante> lista = new List<Restaurante>();
+
+            foreach (XmlNode n in nodes)
+            {
+                Restaurante res = new Restaurante(n.SelectSingleNode("@nomeRestaurante").InnerText, n.SelectSingleNode("nome").InnerText, n.SelectSingleNode("quantidade").InnerText, n.SelectSingleNode("kcal").InnerText);
+
+                lista.Add(res);
+            }
+
+            return lista;
+        }
+
+        public List<String> GetAllRestaurantes(string token)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(PRATO_FILEPATH_XML);
+
+            XmlNodeList nodes = doc.SelectNodes("//Restaurante");
+            List<String> lista = new List<String>();
+
+            foreach (XmlNode n in nodes)
+            {
+                String nome = n.SelectSingleNode("@nomeRestaurante").InnerText;
+
+                lista.Add(nome);
+            }
+
+            return lista;
+        }
+
         public Int32 GetCaloriasByVegetal(string nome, string token)
         {
             checkAuthentication(token, false);
@@ -403,65 +477,161 @@ namespace WebService
             return caloriasFinal;
         }
 
-        // a partir de calorias - return vegetais com teor calorico semelhante
+        public Int32 GetCaloriasByConjuntoPrato(List<Restaurante> conjuntoPrato, string token)
+        {
+            checkAuthentication(token, false);
+            XmlDocument doc = new XmlDocument();
+            doc.Load(PRATO_FILEPATH_XML);
+
+            int soma = 0;
+
+            foreach (Restaurante prato in conjuntoPrato)
+            {
+                soma += GetCaloriasByPrato(prato.Nome, token);
+            }
+
+            return soma;
+        }
+
         public List<Vegetal> GetVegetaisByCalorias(int calorias, string token)
         {
-            checkAuthentication(token, false);
             XmlDocument doc = new XmlDocument();
-            doc.Load(FILEPATH);
-            XmlNodeList bookNodes = doc.SelectNodes("/bookstore/book[@CATEGORY='" + category + "']");
-            List<Book> books = new List<Book>();
+            doc.Load(VEGETAL_FILEPATH_XML);
 
-            foreach (XmlNode bookNode in bookNodes)
+            XmlNodeList nodes = doc.SelectNodes("//Vegetais");
+            List<Vegetal> lista = new List<Vegetal>();
+
+            foreach (XmlNode n in nodes)
             {
-                XmlNode titleNode = bookNode.SelectSingleNode("title");
-                XmlNode authorNode = bookNode.SelectSingleNode("author");
-                XmlNode yearNode = bookNode.SelectSingleNode("year");
-                XmlNode priceNode = bookNode.SelectSingleNode("price");
-                XmlAttribute categoryNode = bookNode.Attributes["CATEGORY"];
-                Book book = new Book(titleNode.InnerText, authorNode.InnerText, Convert.ToInt32(yearNode.InnerText), Convert.ToDouble(priceNode.InnerText, NumberFormatInfo.InvariantInfo), categoryNode.Value);
-                books.Add(book);
+                int kcal = Convert.ToInt32(n.SelectSingleNode("kcal").InnerText);
+
+                if ((calorias + 20 >= kcal) &&
+                    (calorias - 20 <= kcal))
+                {
+                    Vegetal veg = new Vegetal(n.SelectSingleNode("nome").InnerText, n.SelectSingleNode("estado").InnerText, n.SelectSingleNode("kcal").InnerText, n.SelectSingleNode("tipoDose").InnerText, n.SelectSingleNode("dose").InnerText);
+
+                    lista.Add(veg);
+                }
             }
 
-            return books;
+            return lista;
         }
 
-        // a partir de calorias - return quantidade de exercicio necessario para queimar as calorias
+        public List<Vegetal> GetSomatorioVegetaisByCalorias(int calorias, string token)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(VEGETAL_FILEPATH_XML);
+
+            XmlNodeList nodes = doc.SelectNodes("//Vegetais");
+            List<Vegetal> lista = new List<Vegetal>();
+
+            foreach (XmlNode n in nodes)
+            {
+                int kcal = Convert.ToInt32(n.SelectSingleNode("kcal").InnerText);
+                String nome = n.SelectSingleNode("nome").InnerText;
+
+                bool aux = false;
+
+                if (!aux)
+                {
+                    foreach (XmlNode m in nodes)
+                    {
+                        if (!aux)
+                        {
+                            if (nome != m.SelectSingleNode("nome").InnerText)
+                            {
+                                int kcalAux = Convert.ToInt32(m.SelectSingleNode("kcal").InnerText);
+
+                                if (calorias < kcal + kcalAux)
+                                {
+                                    Vegetal veg = new Vegetal(n.SelectSingleNode("nome").InnerText,
+                                        n.SelectSingleNode("estado").InnerText, n.SelectSingleNode("kcal").InnerText,
+                                        n.SelectSingleNode("tipoDose").InnerText, n.SelectSingleNode("dose").InnerText);
+                                    lista.Add(veg);
+
+                                    Vegetal veg2 = new Vegetal(m.SelectSingleNode("nome").InnerText,
+                                        m.SelectSingleNode("estado").InnerText, m.SelectSingleNode("kcal").InnerText,
+                                        m.SelectSingleNode("tipoDose").InnerText, m.SelectSingleNode("dose").InnerText);
+                                    lista.Add(veg2);
+
+                                    aux = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+
         public List<Exercicio> GetExerciciosByCalorias(int calorias, string token)
         {
-            checkAuthentication(token, false);
             XmlDocument doc = new XmlDocument();
-            doc.Load(FILEPATH);
-            XmlNodeList bookNodes = doc.SelectNodes("/bookstore/book[@CATEGORY='" + category + "']");
-            List<Book> books = new List<Book>();
+            doc.Load(EXERCICIO_FILEPATH_XML);
 
-            foreach (XmlNode bookNode in bookNodes)
+            XmlNodeList nodes = doc.SelectNodes("//Exercicios");
+            List<Exercicio> lista = new List<Exercicio>();
+
+            foreach (XmlNode n in nodes)
             {
-                XmlNode titleNode = bookNode.SelectSingleNode("title");
-                XmlNode authorNode = bookNode.SelectSingleNode("author");
-                XmlNode yearNode = bookNode.SelectSingleNode("year");
-                XmlNode priceNode = bookNode.SelectSingleNode("price");
-                XmlAttribute categoryNode = bookNode.Attributes["CATEGORY"];
-                Book book = new Book(titleNode.InnerText, authorNode.InnerText, Convert.ToInt32(yearNode.InnerText), Convert.ToDouble(priceNode.InnerText, NumberFormatInfo.InvariantInfo), categoryNode.Value);
-                books.Add(book);
+                int kcal = Convert.ToInt32(n.SelectSingleNode("kcal").InnerText);
+
+                if ((calorias + 20 >= kcal) &&
+                    (calorias < kcal))
+                {
+                    Exercicio exe = new Exercicio(n.SelectSingleNode("nome").InnerText, kcal, float.Parse(n.SelectSingleNode("met").InnerText));
+
+                    lista.Add(exe);
+                }
             }
 
-            return books;
+            return lista;
         }
 
+        public String GetInformacaoTotalAndroid(List<Restaurante> conjuntoPratos, string token)
+        {
+            String info;
 
+            int caloriasPratos = GetCaloriasByConjuntoPrato(conjuntoPratos, token);
+            List<Vegetal> listaVegetais = GetSomatorioVegetaisByCalorias(caloriasPratos, token);
+            List<Exercicio> listaExercicios = GetExerciciosByCalorias(caloriasPratos, token);
 
-        // ANDROID
-        /*
-         * public void FastFoodCalculator(){
-         * }
-         * 
-         * Recebe lista de refeicoes fast food
-         * envia soma calorica das refeicoes
-         * List<Exercicio> a quantidade de exercicio necessario para queimar as calorias
-         * enviar resultado
-         * List<Vegetal> vegetais com teor calorico semelhante
-         * enviar resultado 
-         */
+            String infoVeg = "";
+            String infoExe = "";
+
+            foreach (Vegetal veg in listaVegetais)
+            {
+                if (infoVeg != "")
+                {
+                    infoVeg += ", " + veg.Nome;
+                }
+                else
+                {
+                    infoVeg = veg.Nome;
+                }
+            }
+
+            foreach (Exercicio exe in listaExercicios)
+            {
+                if (infoExe != "")
+                {
+                    infoExe += ", " + exe.Nome;
+                }
+                else
+                {
+                    infoExe = exe.Nome;
+                }
+            }
+
+            info = "As calorias do conjunto de pratos selecionado é de: " + caloriasPratos +
+                   "\nPara queimar todas as calorias ingeridas por esses pratos terá de fazer os seguintes exercicios: " +
+                   infoExe +
+                   "\nDeverá substituir por alimentação mais saudavel, como por exemplo este conjunto de vegetais: " +
+                   infoVeg;
+                
+            return info;
+        }
     }
 }

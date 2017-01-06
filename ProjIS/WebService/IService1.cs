@@ -62,7 +62,7 @@ namespace WebService
         [WebInvoke(Method = "DELETE", UriTemplate = "/restaurante/{nome}?token={token}")]
         void DeletePrato(string nome, string token);
 
-        
+
 
         /// <summary>
         /// ////////
@@ -71,7 +71,14 @@ namespace WebService
         /// <param name="token"></param>
         /// <returns></returns>
 
-            //Vegetal
+        //Android
+
+        [OperationContract(Name = "GetInformacaoTotalAndroid")]
+        [WebInvoke(Method = "POST", UriTemplate = "/GetInformacaoTotalAndroid/token={token}")]
+        String GetInformacaoTotalAndroid(List<Restaurante> conjuntoPratos, string token);
+
+
+        //Vegetal
         [OperationContract(Name = "GetCaloriasByVegetal")]
         [WebInvoke(Method = "POST", UriTemplate = "/vegetal/{nome}?token={token}")]
         Int32 GetCaloriasByVegetal(string nome, string token);
@@ -84,6 +91,10 @@ namespace WebService
         [WebInvoke(Method = "POST", UriTemplate = "/GetVegetaisByCalorias/calorias?token={token}")]
         List<Vegetal> GetVegetaisByCalorias(int calorias, string token);
 
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "/GetSomatorioVegetaisByCalorias/calorias?token={token}")]
+        List<Vegetal> GetSomatorioVegetaisByCalorias(int calorias, string token);
+
 
 
         //Exercicio
@@ -95,8 +106,12 @@ namespace WebService
         [WebInvoke(Method = "GET", UriTemplate = "/GetAllExercicios?token={token}")]
         List<Exercicio> GetAllExercicios(string token);
 
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "/GetExerciciosByCalorias/calorias?token={token}")]
+        List<Exercicio> GetExerciciosByCalorias(int calorias, string token);
 
-            //Prato + Restaurante
+
+        //Prato + Restaurante
         [OperationContract(Name = "GetCaloriasByPrato")]
         [WebInvoke(Method = "POST", UriTemplate = "/prato/{nome}?token={token}")]
         Int32 GetCaloriasByPrato(string nome, string token);

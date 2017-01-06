@@ -22,7 +22,7 @@ namespace FormProjIS
             this.token = token;
 
             ListViewItem lvi = new ListViewItem();
-            Exercicio[] exercicios = client.GetListaExercicios(token);
+            Exercicio[] exercicios = client.GetAllExercicios(token);
             foreach (Exercicio exer in exercicios)
             {
                 lvi.SubItems.Add(exer.Nome);

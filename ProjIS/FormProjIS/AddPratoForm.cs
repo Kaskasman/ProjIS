@@ -21,7 +21,7 @@ namespace FormProjIS
             this.client = client;
             this.token = token;
 
-            Restaurante[] restaurantesNome = client.GetRestauranteName(token);
+            Restaurante[] restaurantesNome = client.GetAllRestaurantes(token);
             foreach (Restaurante r in restaurantesNome)
             {
                 comboBoxRestaurante.Items.Add(r);

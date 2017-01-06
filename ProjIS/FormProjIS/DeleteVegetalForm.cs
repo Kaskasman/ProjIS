@@ -22,7 +22,7 @@ namespace FormProjIS
             this.token = token;
 
             ListViewItem lvi = new ListViewItem();
-            Vegetal[] vegetais = client.GetListaVegetais(token);
+            Vegetal[] vegetais = client.GetAllVegetais(token);
             foreach (Vegetal v in vegetais)
             {            
                 lvi.SubItems.Add(v.Nome);

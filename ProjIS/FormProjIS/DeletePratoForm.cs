@@ -22,7 +22,7 @@ namespace FormProjIS
             this.token = token;
 
             ListViewItem lvi = new ListViewItem();
-            Restaurante[] restaurantes = client.GetListaPratos(token);
+            Restaurante[] restaurantes = client.GetAllPratos(token);
             foreach (Restaurante r in restaurantes)
             {
                 lvi.SubItems.Add(r.NomeRestaurante);

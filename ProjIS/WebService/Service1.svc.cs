@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Web.Hosting;
 using System.Xml;
 
 namespace WebService
@@ -14,6 +16,16 @@ namespace WebService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
+
+        private static readonly string EXERCICIO_FILEPATH_XML = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "exercises.xml");
+        private static readonly string EXERCICIO_FILEPATH_SCHEMA = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "activitiesSchema.xml");
+
+        private static readonly string PRATO_FILEPATH_XML = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "restaurants.xml");
+        private static readonly string PRATO_FILEPATH_SCHEMA = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "restaurantsSchema.xml");
+
+        private static readonly string VEGETAL_FILEPATH_XML = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "vegetables.xml");
+        private static readonly string VEGETAL_FILEPATH_SCHEMA = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "vegetablesSchema.xml");
+
         // chave: username
         // valor: objeto user
         private Dictionary<string, User> users;
@@ -21,8 +33,6 @@ namespace WebService
         // chave: uid
         // valor: objeto Token
         private Dictionary<string, Token> tokens;
-
-        private static string FILEPATH;
 
         private class Token
         {
@@ -209,187 +219,188 @@ namespace WebService
         // SUBMETER
 
         // ADD
-        public void AddVegetal(Vegetal vegatal, string token)
+        public void AddVegetal(Vegetal vegetal, string token)
         {
             checkAuthentication(token, true);
             XmlDocument doc = new XmlDocument();
-            doc.Load(FILEPATH);
-            XmlNode bookstoreNode = doc.SelectSingleNode("/bookstore");
-            XmlElement bookNode = doc.CreateElement("book");
-            bookNode.SetAttribute("CATEGORY", book.Category);
-            XmlElement titleNode = doc.CreateElement("title");
-            titleNode.InnerText = book.Title;
-            bookNode.AppendChild(titleNode);
-            XmlElement authorNode = doc.CreateElement("author");
-            authorNode.InnerText = book.Author;
-            bookNode.AppendChild(authorNode);
-            XmlElement yearNode = doc.CreateElement("year");
-            yearNode.InnerText = book.Year.ToString();
-            bookNode.AppendChild(yearNode);
-            XmlElement priceNode = doc.CreateElement("price");
-            priceNode.InnerText = Convert.ToString(book.Price, NumberFormatInfo.InvariantInfo);
-            bookNode.AppendChild(priceNode);
-            bookstoreNode.AppendChild(bookNode);
-            doc.Save(FILEPATH);
+            doc.Load(VEGETAL_FILEPATH_XML);
+
+            XmlNode vegetaisNode = doc.SelectSingleNode("/vegetais");
+
+            XmlElement vegetalElement = doc.CreateElement("vegetal");
+            
+            XmlElement vegetalNome = doc.CreateElement("nome");
+            vegetalNome.InnerText = vegetal.Nome;
+            vegetalElement.AppendChild(vegetalNome);
+
+            XmlElement vegetalKcal = doc.CreateElement("kcal");
+            vegetalKcal.InnerText = vegetal.Calorias;
+            vegetalElement.AppendChild(vegetalKcal);
+
+            XmlElement vegetalEstado = doc.CreateElement("estado");
+            vegetalEstado.InnerText = vegetal.Estado;
+            vegetalElement.AppendChild(vegetalEstado);
+
+            XmlElement vegetalTipoDose = doc.CreateElement("tipoDose");
+            vegetalTipoDose.InnerText = vegetal.TipoDeDose;
+            vegetalElement.AppendChild(vegetalTipoDose);
+
+            XmlElement vegetalDose = doc.CreateElement("dose");
+            vegetalDose.InnerText = vegetal.Dose;
+            vegetalElement.AppendChild(vegetalDose);
+
+            vegetaisNode.AppendChild(vegetalElement);
+
+            doc.Save(VEGETAL_FILEPATH_XML);
         }
 
         public void AddExercicio(Exercicio exercicio, string token)
         {
             checkAuthentication(token, true);
             XmlDocument doc = new XmlDocument();
-            doc.Load(FILEPATH);
-            XmlNode bookstoreNode = doc.SelectSingleNode("/bookstore");
-            XmlElement bookNode = doc.CreateElement("book");
-            bookNode.SetAttribute("CATEGORY", book.Category);
-            XmlElement titleNode = doc.CreateElement("title");
-            titleNode.InnerText = book.Title;
-            bookNode.AppendChild(titleNode);
-            XmlElement authorNode = doc.CreateElement("author");
-            authorNode.InnerText = book.Author;
-            bookNode.AppendChild(authorNode);
-            XmlElement yearNode = doc.CreateElement("year");
-            yearNode.InnerText = book.Year.ToString();
-            bookNode.AppendChild(yearNode);
-            XmlElement priceNode = doc.CreateElement("price");
-            priceNode.InnerText = Convert.ToString(book.Price, NumberFormatInfo.InvariantInfo);
-            bookNode.AppendChild(priceNode);
-            bookstoreNode.AppendChild(bookNode);
-            doc.Save(FILEPATH);
+            doc.Load(EXERCICIO_FILEPATH_XML);
+
+            XmlNode exercicioNode = doc.SelectSingleNode("/exercicios");
+
+            XmlElement exercicioElement = doc.CreateElement("exercicio");
+            
+            XmlElement exercicioNome = doc.CreateElement("nome");
+            exercicioNome.InnerText = exercicio.Nome;
+            exercicioElement.AppendChild(exercicioNome);
+
+            XmlElement exercicioKcal = doc.CreateElement("kcal");
+            exercicioKcal.InnerText = exercicio.Calorias.ToString();
+            exercicioElement.AppendChild(exercicioKcal);
+
+            XmlElement exercicioMet = doc.CreateElement("kcal");
+            exercicioMet.InnerText = exercicio.Met.ToString();
+            exercicioElement.AppendChild(exercicioMet);
+
+            exercicioNode.AppendChild(exercicioElement);
+
+            doc.Save(EXERCICIO_FILEPATH_XML);
         }
 
         public void AddPrato(Restaurante restaurante, string token)
         {
             checkAuthentication(token, true);
             XmlDocument doc = new XmlDocument();
-            doc.Load(FILEPATH);
-            XmlNode bookstoreNode = doc.SelectSingleNode("/bookstore");
-            XmlElement bookNode = doc.CreateElement("book");
-            bookNode.SetAttribute("CATEGORY", book.Category);
-            XmlElement titleNode = doc.CreateElement("title");
-            titleNode.InnerText = book.Title;
-            bookNode.AppendChild(titleNode);
-            XmlElement authorNode = doc.CreateElement("author");
-            authorNode.InnerText = book.Author;
-            bookNode.AppendChild(authorNode);
-            XmlElement yearNode = doc.CreateElement("year");
-            yearNode.InnerText = book.Year.ToString();
-            bookNode.AppendChild(yearNode);
-            XmlElement priceNode = doc.CreateElement("price");
-            priceNode.InnerText = Convert.ToString(book.Price, NumberFormatInfo.InvariantInfo);
-            bookNode.AppendChild(priceNode);
-            bookstoreNode.AppendChild(bookNode);
-            doc.Save(FILEPATH);
+            doc.Load(PRATO_FILEPATH_XML);
+
+            XmlNode restaurantesNode = doc.SelectSingleNode("/restaurantes");
+
+            XmlElement pratoElement = doc.CreateElement("prato");
+
+            XmlElement pratoNome = doc.CreateElement("nome");
+            pratoNome.InnerText = restaurante.Nome;
+            pratoElement.AppendChild(pratoNome);
+
+            XmlElement pratoKcal = doc.CreateElement("kcal");
+            pratoKcal.InnerText = restaurante.Calorias;
+            pratoElement.AppendChild(pratoKcal);
+
+            XmlElement pratoQuantidade = doc.CreateElement("quantidade");
+            pratoQuantidade.InnerText = restaurante.Quantidade;
+            pratoElement.AppendChild(pratoQuantidade);
+
+            XmlNode restauranteElement = doc.SelectSingleNode("//restaurante[@nomeRestaurante = '" + restaurante.NomeRestaurante + "']");
+
+            if (restauranteElement == null)
+            {
+                XmlElement restaurant = doc.CreateElement("restaurante");
+                restaurant.SetAttribute("name", restaurante.NomeRestaurante);
+                restaurant.AppendChild(pratoElement);
+                restauranteElement.AppendChild(restaurant);
+            }
+            else
+            {
+                restauranteElement.AppendChild(pratoElement);
+            }
+
+            restaurantesNode.AppendChild(restauranteElement);
+
+            doc.Save(PRATO_FILEPATH_XML);
         }
 
         // DELETE
-        public void DeleteVegetal(string title, string token)
+        public void DeleteVegetal(string nome, string token)
         {
             checkAuthentication(token, true);
             XmlDocument doc = new XmlDocument();
-            doc.Load(FILEPATH);
-            XmlNode bookstoreNode = doc.SelectSingleNode("/bookstore");
-            XmlNode bookNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']");
+            doc.Load(VEGETAL_FILEPATH_XML);
+            XmlNode vegetaisNode = doc.DocumentElement;
 
-            if (bookNode != null)
-            {
-                bookstoreNode.RemoveChild(bookNode);
-                doc.Save(FILEPATH);
-            }
+            XmlNode nodeToRemove = doc.SelectSingleNode("//food[nome='" + nome + "']");
+            vegetaisNode.RemoveChild(nodeToRemove);
+
+            doc.Save(VEGETAL_FILEPATH_XML);
         }
 
-        public void DeleteExercicio(string title, string token)
+        public void DeleteExercicio(string nome, string token)
         {
             checkAuthentication(token, true);
             XmlDocument doc = new XmlDocument();
-            doc.Load(FILEPATH);
-            XmlNode bookstoreNode = doc.SelectSingleNode("/bookstore");
-            XmlNode bookNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']");
+            doc.Load(EXERCICIO_FILEPATH_XML);
+            XmlNode exerciciosNode = doc.DocumentElement;
 
-            if (bookNode != null)
-            {
-                bookstoreNode.RemoveChild(bookNode);
-                doc.Save(FILEPATH);
-            }
-            checkAuthentication(token, true);
+            XmlNode nodeToRemove = doc.SelectSingleNode("//exercicio[nome='" + nome + "']");
+            exerciciosNode.RemoveChild(nodeToRemove);
+
+            doc.Save(EXERCICIO_FILEPATH_XML);
         }
 
-        public void DeletePrato(string title, string token)
+        public void DeletePrato(string nome, string token)
         {
             checkAuthentication(token, true);
-            XmlDocument doc = new XmlDocument();
-            doc.Load(FILEPATH);
-            XmlNode bookstoreNode = doc.SelectSingleNode("/bookstore");
-            XmlNode bookNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']");
 
-            if (bookNode != null)
-            {
-                bookstoreNode.RemoveChild(bookNode);
-                doc.Save(FILEPATH);
-            }
+            XmlDocument doc = new XmlDocument();
+            doc.Load(PRATO_FILEPATH_XML);
+            XmlNode restaurantesNode = doc.DocumentElement;
+            XmlNode restauranteElement = doc.SelectSingleNode("//restaurante[prato[nome='" + nome +"']]");
+            XmlNode nodeToRemove = doc.SelectSingleNode("//prato[nome='" + nome + "']");
+            // root.RemoveChild(nodeToRemove);
+            restauranteElement.RemoveChild(nodeToRemove);
+            doc.Save(PRATO_FILEPATH_XML);
         }
 
         // GET
-        public Vegetal GetCaloriasByVegetal(string title, string token)
+        public Int32 GetCaloriasByVegetal(string nome, string token)
         {
             checkAuthentication(token, false);
             XmlDocument doc = new XmlDocument();
-            doc.Load(FILEPATH);
-            XmlNode titleNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/title");
+            doc.Load(VEGETAL_FILEPATH_XML);
+            XmlNode vegetalNode = doc.SelectSingleNode("//vegetal[nome='" + nome + "']");
+            XmlNode calorias = vegetalNode.SelectSingleNode("kcal");
 
-            if (titleNode == null)
-            {
-                return null;
-            }
+            int caloriasFinal = Convert.ToInt32(calorias.Value);
 
-            XmlNode authorNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/author");
-            XmlNode yearNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/year");
-            XmlNode priceNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/price");
-            XmlNode categoryNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/@CATEGORY");
-            Book book = new Book(titleNode.InnerText, authorNode.InnerText, Convert.ToInt32(yearNode.InnerText), Convert.ToDouble(priceNode.InnerText, NumberFormatInfo.InvariantInfo), categoryNode.InnerText);
-
-            return book;
+            return caloriasFinal;
         }
 
-        public Exercicio GetCaloriasByExercicio(string title, string token)
+        public Int32 GetCaloriasByExercicio(string nome, string token)
         {
             checkAuthentication(token, false);
             XmlDocument doc = new XmlDocument();
-            doc.Load(FILEPATH);
-            XmlNode titleNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/title");
+            doc.Load(EXERCICIO_FILEPATH_XML);
+            XmlNode exercicioNode = doc.SelectSingleNode("//exercicio[nome='" + nome + "']");
+            XmlNode calorias = exercicioNode.SelectSingleNode("kcal");
 
-            if (titleNode == null)
-            {
-                return null;
-            }
+            int caloriasFinal = Convert.ToInt32(calorias.Value);
 
-            XmlNode authorNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/author");
-            XmlNode yearNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/year");
-            XmlNode priceNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/price");
-            XmlNode categoryNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/@CATEGORY");
-            Book book = new Book(titleNode.InnerText, authorNode.InnerText, Convert.ToInt32(yearNode.InnerText), Convert.ToDouble(priceNode.InnerText, NumberFormatInfo.InvariantInfo), categoryNode.InnerText);
-
-            return book;
+            return caloriasFinal;
         }
 
-        public Restaurante GetCaloriasByPrato(string title, string token)
+        public Int32 GetCaloriasByPrato(string nome, string token)
         {
             checkAuthentication(token, false);
             XmlDocument doc = new XmlDocument();
-            doc.Load(FILEPATH);
-            XmlNode titleNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/title");
+            doc.Load(PRATO_FILEPATH_XML);
+            XmlNode pratoNode = doc.SelectSingleNode("//prato[nome='" + nome + "']");
+            XmlNode calorias = pratoNode.SelectSingleNode("kcal");
 
-            if (titleNode == null)
-            {
-                return null;
-            }
+            int caloriasFinal = Convert.ToInt32(calorias.Value);
 
-            XmlNode authorNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/author");
-            XmlNode yearNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/year");
-            XmlNode priceNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/price");
-            XmlNode categoryNode = doc.SelectSingleNode("/bookstore/book[title='" + title + "']/@CATEGORY");
-            Book book = new Book(titleNode.InnerText, authorNode.InnerText, Convert.ToInt32(yearNode.InnerText), Convert.ToDouble(priceNode.InnerText, NumberFormatInfo.InvariantInfo), categoryNode.InnerText);
-
-            return book;
+            return caloriasFinal;
         }
 
         // a partir de calorias - return vegetais com teor calorico semelhante

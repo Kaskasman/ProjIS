@@ -51,29 +51,29 @@ namespace WebService
         // DELETE 
         [OperationContract(Name = "DeleteVegetalByNome")]
         [WebInvoke(Method = "DELETE", UriTemplate = "/vegetal/{title}?token={token}")]
-        void DeleteVegetal(string title, string token); 
+        void DeleteVegetal(string nome, string token); 
 
         [OperationContract(Name = "DeleteExercicioByNome")]
         [WebInvoke(Method = "DELETE", UriTemplate = "/exercicio/{title}?token={token}")]
-        void DeleteExercicio(string title, string token); 
+        void DeleteExercicio(string nome, string token); 
 
         // ----- delete refeicao tem de ter restaurante e prato -----
         [OperationContract(Name = "DeleteRefeicaoByNome")]
         [WebInvoke(Method = "DELETE", UriTemplate = "/restaurante/{title}?token={token}")]
-        void DeletePrato(string title, string token);
+        void DeletePrato(string nome, string token);
 
         // GET
-        [OperationContract(Name = "GetBookByTitle")]
+        [OperationContract(Name = "GetCaloriasByVegetal")]
         [WebInvoke(Method = "GET", UriTemplate = "/book/{title}?token={token}")]
-        Vegetal GetCaloriasByVegetal(string title, string token);
+        Int32 GetCaloriasByVegetal(string nome, string token);
 
-        [OperationContract(Name = "GetBookByTitle")]
+        [OperationContract(Name = "GetCaloriasByExercicio")]
         [WebInvoke(Method = "GET", UriTemplate = "/book/{title}?token={token}")]
-        Exercicio GetCaloriasByExercicio(string title, string token);
+        Int32 GetCaloriasByExercicio(string title, string token);
 
-        [OperationContract(Name = "GetBookByTitle")]
+        [OperationContract(Name = "GetCaloriasByPrato")]
         [WebInvoke(Method = "GET", UriTemplate = "/book/{title}?token={token}")]
-        Restaurante GetCaloriasByPrato(string title, string token);
+        Int32 GetCaloriasByPrato(string title, string token);
 
         [OperationContract(Name = "GetBooksByCategory")]
         [WebInvoke(Method = "GET", UriTemplate = "/books/{category}?token={token}")]
@@ -129,12 +129,14 @@ namespace WebService
         private string calorias;
         private string dose;
         private string estado;
+        private string tipoDeDose;
 
-        public Vegetal(string nome, string estado, string calorias, string dose)
+        public Vegetal(string nome, string estado, string calorias, string tipoDeDose, string dose)
         {
             this.nome = nome;
             this.estado = estado;
             this.calorias = calorias;
+            this.tipoDeDose = tipoDeDose;
             this.dose = dose;
         }
 
@@ -154,6 +156,12 @@ namespace WebService
         {
             get { return calorias; }
             set { calorias = value; }
+        }
+
+        public string TipoDeDose
+        {
+            get { return tipoDeDose; }
+            set { tipoDeDose = value; }
         }
 
         public string Dose

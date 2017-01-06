@@ -46,42 +46,77 @@ namespace WebService
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "/restaurante?token={token}")]
-        void AddPrato(Restaurante restaurante, string token); 
+        void AddPrato(Restaurante prato, string token); 
 
         // DELETE 
         [OperationContract(Name = "DeleteVegetalByNome")]
-        [WebInvoke(Method = "DELETE", UriTemplate = "/vegetal/{title}?token={token}")]
+        [WebInvoke(Method = "DELETE", UriTemplate = "/vegetal/{nome}?token={token}")]
         void DeleteVegetal(string nome, string token); 
 
         [OperationContract(Name = "DeleteExercicioByNome")]
-        [WebInvoke(Method = "DELETE", UriTemplate = "/exercicio/{title}?token={token}")]
+        [WebInvoke(Method = "DELETE", UriTemplate = "/exercicio/{nome}?token={token}")]
         void DeleteExercicio(string nome, string token); 
 
         // ----- delete refeicao tem de ter restaurante e prato -----
         [OperationContract(Name = "DeleteRefeicaoByNome")]
-        [WebInvoke(Method = "DELETE", UriTemplate = "/restaurante/{title}?token={token}")]
+        [WebInvoke(Method = "DELETE", UriTemplate = "/restaurante/{nome}?token={token}")]
         void DeletePrato(string nome, string token);
 
-        // GET
+        
+
+        /// <summary>
+        /// ////////
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+
+            //Vegetal
         [OperationContract(Name = "GetCaloriasByVegetal")]
-        [WebInvoke(Method = "GET", UriTemplate = "/book/{title}?token={token}")]
+        [WebInvoke(Method = "POST", UriTemplate = "/vegetal/{nome}?token={token}")]
         Int32 GetCaloriasByVegetal(string nome, string token);
 
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/GetAllVegetais?token={token}")]
+        List<Vegetal> GetAllVegetais(string token);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "/GetVegetaisByCalorias/calorias?token={token}")]
+        List<Vegetal> GetVegetaisByCalorias(int calorias, string token);
+
+
+
+        //Exercicio
         [OperationContract(Name = "GetCaloriasByExercicio")]
-        [WebInvoke(Method = "GET", UriTemplate = "/book/{title}?token={token}")]
-        Int32 GetCaloriasByExercicio(string title, string token);
+        [WebInvoke(Method = "POST", UriTemplate = "/exercicio/{nome}?token={token}")]
+        Int32 GetCaloriasByExercicio(string nome, string token);
 
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/GetAllExercicios?token={token}")]
+        List<Exercicio> GetAllExercicios(string token);
+
+
+            //Prato + Restaurante
         [OperationContract(Name = "GetCaloriasByPrato")]
-        [WebInvoke(Method = "GET", UriTemplate = "/book/{title}?token={token}")]
-        Int32 GetCaloriasByPrato(string title, string token);
+        [WebInvoke(Method = "POST", UriTemplate = "/prato/{nome}?token={token}")]
+        Int32 GetCaloriasByPrato(string nome, string token);
 
-        [OperationContract(Name = "GetBooksByCategory")]
-        [WebInvoke(Method = "GET", UriTemplate = "/books/{category}?token={token}")]
-        List<Vegetal> GetVegetaisByCalorias(string category, string token);
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/GetAllPratos?token={token}")]
+        List<Restaurante> GetAllPratos(string token);
 
-        [OperationContract(Name = "GetBooksByCategory")]
-        [WebInvoke(Method = "GET", UriTemplate = "/books/{category}?token={token}")]
-        List<Exercicio> GetExerciciosByCalorias(string category, string token);
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/GetAllRestaurantes?token={token}")]
+        List<String> GetAllRestaurantes(string token);
+
+        [OperationContract(Name = "GetCaloriasByConjuntoPrato")]
+        [WebInvoke(Method = "POST", UriTemplate = "/GetCaloriasByConjuntoPrato/token={token}")]
+        Int32 GetCaloriasByConjuntoPrato(List<Restaurante> conjuntoPrato, string token);
+
+
+
+
+
     }
 
 
@@ -140,30 +175,35 @@ namespace WebService
             this.dose = dose;
         }
 
+        [DataMember]
         public string Nome
         {
             get { return nome; }
             set { nome = value; }
         }
 
+        [DataMember]
         public string Estado
         {
             get { return estado; }
             set { estado = value; }
         }
 
+        [DataMember]
         public string Calorias
         {
             get { return calorias; }
             set { calorias = value; }
         }
 
+        [DataMember]
         public string TipoDeDose
         {
             get { return tipoDeDose; }
             set { tipoDeDose = value; }
         }
 
+        [DataMember]
         public string Dose
         {
             get { return dose; }
@@ -192,24 +232,28 @@ namespace WebService
             this.calorias = calorias;
         }
 
+        [DataMember]
         public string NomeRestaurante
         {
             get { return nomeRestaurante; }
             set { nomeRestaurante = value; }
         }
 
+        [DataMember]
         public string Nome
         {
             get { return nome; }
             set { nome = value; }
         }
 
+        [DataMember]
         public string Quantidade
         {
             get { return quantidade; }
             set { quantidade = value; }
         }
 
+        [DataMember]
         public string Calorias
         {
             get { return calorias; }
@@ -236,6 +280,7 @@ namespace WebService
             this.Met = met;
         }
 
+        [DataMember]
         public string Nome
         {
             get
@@ -249,6 +294,7 @@ namespace WebService
             }
         }
 
+        [DataMember]
         public int Calorias
         {
             get
@@ -262,6 +308,7 @@ namespace WebService
             }
         }
 
+        [DataMember]
         public float Met
         {
             get

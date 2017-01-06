@@ -14,16 +14,18 @@ namespace WebService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
+
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class Service1 : IService1
     {
 
-        private static readonly string EXERCICIO_FILEPATH_XML = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "exercicios.xml");
+        private static readonly string EXERCICIO_FILEPATH_XML = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "exerciciosXml.xml");
         private static readonly string EXERCICIO_FILEPATH_SCHEMA = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "exerciciosSchema.xml");
 
-        private static readonly string PRATO_FILEPATH_XML = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "restaurantes.xml");
+        private static readonly string PRATO_FILEPATH_XML = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "restaurantesXml.xml");
         private static readonly string PRATO_FILEPATH_SCHEMA = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "restaurantesSchema.xml");
 
-        private static readonly string VEGETAL_FILEPATH_XML = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "vegetais.xml");
+        private static readonly string VEGETAL_FILEPATH_XML = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "vegetaisXml.xml");
         private static readonly string VEGETAL_FILEPATH_SCHEMA = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "vegetaisSchema.xml");
 
         // chave: username
@@ -446,7 +448,7 @@ namespace WebService
             XmlNode vegetalNode = doc.SelectSingleNode("//vegetal[nome='" + nome + "']");
             XmlNode calorias = vegetalNode.SelectSingleNode("kcal");
 
-            int caloriasFinal = Convert.ToInt32(calorias.Value);
+            int caloriasFinal = Convert.ToInt32(calorias.InnerText);
 
             return caloriasFinal;
         }
@@ -459,7 +461,7 @@ namespace WebService
             XmlNode exercicioNode = doc.SelectSingleNode("//exercicio[nome='" + nome + "']");
             XmlNode calorias = exercicioNode.SelectSingleNode("kcal");
 
-            int caloriasFinal = Convert.ToInt32(calorias.Value);
+            int caloriasFinal = Convert.ToInt32(calorias.InnerText);
 
             return caloriasFinal;
         }
@@ -472,7 +474,7 @@ namespace WebService
             XmlNode pratoNode = doc.SelectSingleNode("//prato[nome='" + nome + "']");
             XmlNode calorias = pratoNode.SelectSingleNode("kcal");
 
-            int caloriasFinal = Convert.ToInt32(calorias.Value);
+            int caloriasFinal = Convert.ToInt32(calorias.InnerText);
 
             return caloriasFinal;
         }

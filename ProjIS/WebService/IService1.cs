@@ -21,7 +21,7 @@ namespace WebService
         [OperationContract]
         string LogIn(string username, string password);
 
-        [WebInvoke(Method = "POST", UriTemplate = "/logout")]
+        [WebInvoke(Method = "POST", UriTemplate = "/logout?token={token}")]
         [OperationContract]
         void LogOut(string token);
 
@@ -125,7 +125,7 @@ namespace WebService
         private string username;
         private string password;
         private bool admin;
-
+        
         public User(string username, string password, bool admin)
         {
             this.admin = admin;

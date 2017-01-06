@@ -1,0 +1,873 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<vegetais>
+  <vegetal>
+    <nome>Abóbora</nome>
+    <kcal>30</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Abóbora sem Sal, Enlatado</nome>
+    <kcal>83</kcal>
+    <estado>sem Sal, Enlatado</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Abóbora Cozida</nome>
+    <kcal>46</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Aipo</nome>
+    <kcal>6</kcal>
+    <estado>-</estado>
+    <tipoDose>talo,médio<dose>talo,médio</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Aipo Cozido</nome>
+    <kcal>60</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,cortadoemcubos<dose>chávena,cortadoemcubos</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alcachofras Cabeça ou Francês</nome>
+    <kcal>60</kcal>
+    <estado>Cabeça ou Francês</estado>
+    <tipoDose>média<dose>média</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alcachofra Cozida de Alcachofra Fresca</nome>
+    <kcal>84</kcal>
+    <estado>de Alcachofra Fresca</estado>
+    <tipoDose>cabeçamédia<dose>cabeçamédia</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alcachofra Cozida Enlatado</nome>
+    <kcal>116</kcal>
+    <estado>Enlatado</estado>
+    <tipoDose>chávena,corações<dose>chávena,corações</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Corações de Alcachofras em Óleo</nome>
+    <kcal>33</kcal>
+    <estado>-</estado>
+    <tipoDose>
+      <dose>
+      </dose>
+    </tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alface</nome>
+    <kcal>8</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,desfiadaoucortada<dose>chávena,desfiadaoucortada</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alface de Folha Verde</nome>
+    <kcal>5</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,desfiada<dose>chávena,desfiada</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Salada Verde Mista</nome>
+    <kcal>9</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,desfiadaoucortada<dose>chávena,desfiadaoucortada</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alface Romana</nome>
+    <kcal>8</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,desfiada<dose>chávena,desfiada</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alface Rúcula</nome>
+    <kcal>5</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alho</nome>
+    <kcal>4</kcal>
+    <estado>-</estado>
+    <tipoDose>dente<dose>dente</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alho Picado</nome>
+    <kcal>5</kcal>
+    <estado>-</estado>
+    <tipoDose>colherdechá<dose>colherdechá</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alho Cozido</nome>
+    <kcal>3</kcal>
+    <estado>-</estado>
+    <tipoDose>dente<dose>dente</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alho em Pó</nome>
+    <kcal>9</kcal>
+    <estado>-</estado>
+    <tipoDose>colherdechá<dose>colherdechá</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alhos Franceses</nome>
+    <kcal>54</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Alho Françês Cozido</nome>
+    <kcal>79</kcal>
+    <estado>-</estado>
+    <tipoDose>
+      <dose>
+      </dose>
+    </tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Azeitonas</nome>
+    <kcal>5</kcal>
+    <estado>-</estado>
+    <tipoDose>média<dose>média</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Azeitonas Pretas</nome>
+    <kcal>36</kcal>
+    <estado>-</estado>
+    <tipoDose>dosede10pequenas<dose>dosede10pequenas</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Azeitonas Verdes</nome>
+    <kcal>42</kcal>
+    <estado>-</estado>
+    <tipoDose>dosede10pequenas<dose>dosede10pequenas</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Azeitonas Verdes Recheadas</nome>
+    <kcal>44</kcal>
+    <estado>-</estado>
+    <tipoDose>dosede10pequenas<dose>dosede10pequenas</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Azeitonas Verdes Conserva, Enlatado ou Engarrafado</nome>
+    <kcal>145</kcal>
+    <estado>Conserva, Enlatado ou Engarrafado</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batata Doce</nome>
+    <kcal>86</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batata-Doce sem Casca, Cozido, Fervido</nome>
+    <kcal>76</kcal>
+    <estado>sem Casca, Cozido, Fervido</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batata-Doce sem Sal, no Forno com Casca, Cozido</nome>
+    <kcal>90</kcal>
+    <estado>sem Sal, no Forno com Casca, Cozido</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batata-Doce Puré, Enlatado</nome>
+    <kcal>258</kcal>
+    <estado>Puré, Enlatado</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batatas Brancas com Casca</nome>
+    <kcal>119</kcal>
+    <estado>com Casca</estado>
+    <tipoDose>pequena<dose>pequena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batatas Brancas com Casca, no Forno</nome>
+    <kcal>130</kcal>
+    <estado>com Casca, no Forno</estado>
+    <tipoDose>pequena<dose>pequena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Puré de Batata</nome>
+    <kcal>210</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batata Assada</nome>
+    <kcal>203</kcal>
+    <estado>-</estado>
+    <tipoDose>média<dose>média</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batatas sem Casca, com Sal, Cozido</nome>
+    <kcal>118</kcal>
+    <estado>sem Casca, com Sal, Cozido</estado>
+    <tipoDose>
+      <dose>
+      </dose>
+    </tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batata no Forno Casca Consumida</nome>
+    <kcal>194</kcal>
+    <estado>Casca Consumida</estado>
+    <tipoDose>média<dose>média</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batata no Forno Casca Não Consumida</nome>
+    <kcal>121</kcal>
+    <estado>Casca Não Consumida</estado>
+    <tipoDose>média<dose>média</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batata no Forno Recheada com Creme Azedo Casca Consumida</nome>
+    <kcal>316</kcal>
+    <estado>Casca Consumida</estado>
+    <tipoDose>média<dose>média</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batata no Forno Recheada com Bacon e Queijo Casca Consumida</nome>
+    <kcal>322</kcal>
+    <estado>Casca Consumida</estado>
+    <tipoDose>média<dose>média</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Batata no Forno Recheada com Queijo Casca Consumida</nome>
+    <kcal>288</kcal>
+    <estado>Casca Consumida</estado>
+    <tipoDose>média<dose>média</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Beringela</nome>
+    <kcal>24</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Beringela Cozida</nome>
+    <kcal>66</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,emcubos<dose>chávena,emcubos</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Panado de Beringela</nome>
+    <kcal>74</kcal>
+    <estado>-</estado>
+    <tipoDose>fatia<dose>fatia</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Ratatouille</nome>
+    <kcal>154</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Beterrabas</nome>
+    <kcal>43</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Beterrabas em Conserva Sólido e Líquido, Enlatado</nome>
+    <kcal>148</kcal>
+    <estado>Sólido e Líquido, Enlatado</estado>
+    <tipoDose>chávena,fatias<dose>chávena,fatias</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Beterraba Sólidos Escorridos, Enlatado</nome>
+    <kcal>7</kcal>
+    <estado>Sólidos Escorridos, Enlatado</estado>
+    <tipoDose>
+      <dose>
+      </dose>
+    </tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Beterrabas Cozidas de Beterrabas Frescas</nome>
+    <kcal>99</kcal>
+    <estado>de Beterrabas Frescas</estado>
+    <tipoDose>chávena,cortadasemcubos<dose>chávena,cortadasemcubos</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Brócolos</nome>
+    <kcal>34</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Brócolos Cozidos Cozinhado sem Gordura Adicionada</nome>
+    <kcal>34</kcal>
+    <estado>Cozinhado sem Gordura Adicionada</estado>
+    <tipoDose>chávena,ramos<dose>chávena,ramos</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Grelos</nome>
+    <kcal>22</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Brócolos Chineses Cozido</nome>
+    <kcal>19</kcal>
+    <estado>Cozido</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Brócolos Inteiro, Congeladas</nome>
+    <kcal>29</kcal>
+    <estado>Inteiro, Congeladas</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cebolas</nome>
+    <kcal>42</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cebolas Vermelhas</nome>
+    <kcal>42</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cebolinho</nome>
+    <kcal>32</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,cortado<dose>chávena,cortado</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cebolas Doces</nome>
+    <kcal>32</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cebolinho Verde</nome>
+    <kcal>2</kcal>
+    <estado>-</estado>
+    <tipoDose>colherdesopa<dose>colherdesopa</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cenouras</nome>
+    <kcal>41</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cenouras Bebé</nome>
+    <kcal>35</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cenouras Cozidas</nome>
+    <kcal>82</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,fatiadas<dose>chávena,fatiadas</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cenouras Sólido e Líquido, Enlatado</nome>
+    <kcal>28</kcal>
+    <estado>Sólido e Líquido, Enlatado</estado>
+    <tipoDose>chávena,fatias<dose>chávena,fatias</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cogumelos</nome>
+    <kcal>22</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cogumelos Sólidos Escorridos, Enlatado</nome>
+    <kcal>25</kcal>
+    <estado>Sólidos Escorridos, Enlatado</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cogumelos Portobello</nome>
+    <kcal>26</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cogumelo Ostra</nome>
+    <kcal>52</kcal>
+    <estado>-</estado>
+    <tipoDose>grande<dose>grande</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Cogumelos Cozidos Cozinhado sem Gordura Adicionada</nome>
+    <kcal>44</kcal>
+    <estado>Cozinhado sem Gordura Adicionada</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Courgete Cozida</nome>
+    <kcal>68</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,fatias<dose>chávena,fatias</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Courgete Amarela</nome>
+    <kcal>18</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,fatiada<dose>chávena,fatiada</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Repolho</nome>
+    <kcal>21</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,cortado<dose>chávena,cortado</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Repolho-Roxo</nome>
+    <kcal>28</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,cortado<dose>chávena,cortado</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Repolho Verde</nome>
+    <kcal>24</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Couve Lombarda</nome>
+    <kcal>19</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,desfiada<dose>chávena,desfiada</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Repolho Chinês</nome>
+    <kcal>5</kcal>
+    <estado>-</estado>
+    <tipoDose>dose<dose>dose</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Couves de Bruxelas</nome>
+    <kcal>38</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Couves de Bruxelas Congelado</nome>
+    <kcal>41</kcal>
+    <estado>Congelado</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Couves de Bruxelas Cozidas</nome>
+    <kcal>88</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Couve-de-Folhas</nome>
+    <kcal>34</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,cortada<dose>chávena,cortada</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Couve-de-Folhas Cozida de Couve Fresca</nome>
+    <kcal>69</kcal>
+    <estado>de Couve Fresca</estado>
+    <tipoDose>chávena,fresca<dose>chávena,fresca</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Couve-Flor</nome>
+    <kcal>25</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Couve-Flor Congelado</nome>
+    <kcal>24</kcal>
+    <estado>Congelado</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Couve-Flor Cozida Cozinhado sem Gordura Adicionada</nome>
+    <kcal>40</kcal>
+    <estado>Cozinhado sem Gordura Adicionada</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Couve-Flor Cozida de Couve-Flor Congelada, Cozinhado sem Gordura Adicionada</nome>
+    <kcal>34</kcal>
+    <estado>de Couve-Flor Congelada, Cozinhado sem Gordura Adicionada</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Couve-Flor Cozida de Couve-Flor Fresca, Cozinhado sem Gordura Adicionada</nome>
+    <kcal>29</kcal>
+    <estado>de Couve-Flor Fresca, Cozinhado sem Gordura Adicionada</estado>
+    <tipoDose>chávena,pedaços<dose>chávena,pedaços</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Courgette</nome>
+    <kcal>16</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Courgette Bebé</nome>
+    <kcal>2</kcal>
+    <estado>-</estado>
+    <tipoDose>média<dose>média</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Courgette com Sal, Escorrido, Cozido</nome>
+    <kcal>14</kcal>
+    <estado>com Sal, Escorrido, Cozido</estado>
+    <tipoDose>chávena,fatias<dose>chávena,fatias</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Courgete Cozida de Courgete Fresca</nome>
+    <kcal>68</kcal>
+    <estado>de Courgete Fresca</estado>
+    <tipoDose>chávena,fatias<dose>chávena,fatias</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Ervilhas</nome>
+    <kcal>117</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Vagem</nome>
+    <kcal>42</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Ervilhas Congelado</nome>
+    <kcal>77</kcal>
+    <estado>Congelado</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Ervilhas Cozidas Enlatado</nome>
+    <kcal>86</kcal>
+    <estado>Enlatado</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Espargos</nome>
+    <kcal>27</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Espargos Cozidos de Espargos Frescos</nome>
+    <kcal>6</kcal>
+    <estado>de Espargos Frescos</estado>
+    <tipoDose>rebentomédio<dose>rebentomédio</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Espargos Sólidos Escorridos, Enlatado</nome>
+    <kcal>3</kcal>
+    <estado>Sólidos Escorridos, Enlatado</estado>
+    <tipoDose>rebento<dose>rebento</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Espargos sem Preparação, Congelado</nome>
+    <kcal>14</kcal>
+    <estado>sem Preparação, Congelado</estado>
+    <tipoDose>rebentos<dose>rebentos</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Espinafre</nome>
+    <kcal>7</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Espinafre Folha ou Cortado, Congelado</nome>
+    <kcal>48</kcal>
+    <estado>Folha ou Cortado, Congelado</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Espinafre Bébe</nome>
+    <kcal>7</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Espinafre Sólidos Escorridos, Enlatado</nome>
+    <kcal>49</kcal>
+    <estado>Sólidos Escorridos, Enlatado</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Espinafre Cozido de Espinafre Fresco</nome>
+    <kcal>74</kcal>
+    <estado>de Espinafre Fresco</estado>
+    <tipoDose>chávena,fresco<dose>chávena,fresco</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Inhame</nome>
+    <kcal>177</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,emcubos<dose>chávena,emcubos</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Inhame com Sal, Escorrido, Cozido, Fervido</nome>
+    <kcal>158</kcal>
+    <estado>com Sal, Escorrido, Cozido, Fervido</estado>
+    <tipoDose>chávena,emcubos<dose>chávena,emcubos</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Inhame sem Sal, Escorrido, Cozido, Fervido, no Forno</nome>
+    <kcal>158</kcal>
+    <estado>sem Sal, Escorrido, Cozido, Fervido, no Forno</estado>
+    <tipoDose>chávena,emcubos<dose>chávena,emcubos</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Milho</nome>
+    <kcal>86</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Milho Doce Amarelo</nome>
+    <kcal>86</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Milho Bébe</nome>
+    <kcal>6</kcal>
+    <estado>-</estado>
+    <tipoDose>espiga<dose>espiga</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Milho Doce Amarelo Miolo Inteiro, Sólidos Escorridos, Enlatado</nome>
+    <kcal>81</kcal>
+    <estado>Miolo Inteiro, Sólidos Escorridos, Enlatado</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Milho em Espiga com Manteiga</nome>
+    <kcal>155</kcal>
+    <estado>-</estado>
+    <tipoDose>
+      <dose>
+      </dose>
+    </tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Nabos</nome>
+    <kcal>28</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Nabo Cozido</nome>
+    <kcal>67</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,pedaços<dose>chávena,pedaços</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Pepino com Casca</nome>
+    <kcal>45</kcal>
+    <estado>com Casca</estado>
+    <tipoDose>
+      <dose>
+      </dose>
+    </tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Pepino Descascado</nome>
+    <kcal>12</kcal>
+    <estado>Descascado</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Picles de Pepino Doce</nome>
+    <kcal>187</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,cortados<dose>chávena,cortados</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Picles de Pepino Azedo</nome>
+    <kcal>3</kcal>
+    <estado>-</estado>
+    <tipoDose>rebento<dose>rebento</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Picles de Pepino com Endro</nome>
+    <kcal>12</kcal>
+    <estado>-</estado>
+    <tipoDose>médio<dose>médio</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Picles</nome>
+    <kcal>18</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Picles de Pepino com Endro Baixo Teor de Sódio</nome>
+    <kcal>18</kcal>
+    <estado>Baixo Teor de Sódio</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Pimentões Vermelhos</nome>
+    <kcal>39</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena,cortados<dose>chávena,cortados</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Pimentos Verdes</nome>
+    <kcal>20</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Pimentão Amarelo</nome>
+    <kcal>14</kcal>
+    <estado>-</estado>
+    <tipoDose>tiras<dose>tiras</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Pimentos</nome>
+    <kcal>26</kcal>
+    <estado>-</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Pimentas Jalapeno</nome>
+    <kcal>4</kcal>
+    <estado>-</estado>
+    <tipoDose>
+      <dose>
+      </dose>
+    </tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Puré de Batata de Batata Fresca</nome>
+    <kcal>256</kcal>
+    <estado>de Batata Fresca</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Puré de Batata de Batata Seca</nome>
+    <kcal>220</kcal>
+    <estado>de Batata Seca</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Puré de Batatas com Leite Integral</nome>
+    <kcal>174</kcal>
+    <estado>com Leite Integral</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Puré de Batatas com Leite Integral e Manteiga</nome>
+    <kcal>237</kcal>
+    <estado>com Leite Integral e Manteiga</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Quiabo</nome>
+    <kcal>31</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Quiabo Cozido</nome>
+    <kcal>81</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Panados de Quiabo</nome>
+    <kcal>173</kcal>
+    <estado>-</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Quiabo Congelado</nome>
+    <kcal>30</kcal>
+    <estado>Congelado</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Rabanetes</nome>
+    <kcal>1</kcal>
+    <estado>-</estado>
+    <tipoDose>médio<dose>médio</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Tomates</nome>
+    <kcal>22</kcal>
+    <estado>-</estado>
+    <tipoDose>médioeinteiro<dose>médioeinteiro</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Tomates Vermelhos</nome>
+    <kcal>22</kcal>
+    <estado>-</estado>
+    <tipoDose>médioeinteiro<dose>médioeinteiro</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Tomates Vermelhos Enlatado</nome>
+    <kcal>17</kcal>
+    <estado>Enlatado</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Tomates Esmagados Enlatado</nome>
+    <kcal>32</kcal>
+    <estado>Enlatado</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Tomates Cereja</nome>
+    <kcal>3</kcal>
+    <estado>-</estado>
+    <tipoDose>
+      <dose>
+      </dose>
+    </tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Mistura de Vegetais Sólido e Líquido, Enlatado</nome>
+    <kcal>88</kcal>
+    <estado>Sólido e Líquido, Enlatado</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Mistura de Vegetais Sólidos Escorridos, Enlatado</nome>
+    <kcal>80</kcal>
+    <estado>Sólidos Escorridos, Enlatado</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Mistura de Vegetais Congelado</nome>
+    <kcal>64</kcal>
+    <estado>Congelado</estado>
+    <tipoDose>g<dose>g</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Mistura de Vegetais Cozidos Milho, Ervilhas, Feijão Verde e Cenouras</nome>
+    <kcal>151</kcal>
+    <estado>Milho, Ervilhas, Feijão Verde e Cenouras</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+  <vegetal>
+    <nome>Mistura de Vegetais Milho, Feijão Verde, Ervilhas, Cenouras</nome>
+    <kcal>67</kcal>
+    <estado>sem Sal, Enlatado</estado>
+    <tipoDose>chávena<dose>chávena</dose></tipoDose>
+  </vegetal>
+</vegetais>
